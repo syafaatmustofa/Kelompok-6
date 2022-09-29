@@ -56,7 +56,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="card-footer text-muted">2 hari lalu</div>
+
             </div>
     </div>
     <!-- Akhir Tabel Data Peminjaman : Nur -->
