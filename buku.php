@@ -45,7 +45,7 @@ include "config.php";
             <div class="card-header" style="background-color: #FFD384;">Data Buku</div>
                 <div class="card-body">
                     <table class="table table-hover table-bordered bordered-dark mt-4">
-                        <thead>
+                    <thead>
                             <tr>
                                 <th scope="col">ID Buku</th>
                                 <th scope="col">Penulis</th>
