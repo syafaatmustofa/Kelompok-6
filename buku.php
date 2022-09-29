@@ -23,7 +23,7 @@ include "config.php";
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Data Siswa</a>
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Features</a>
@@ -42,29 +42,37 @@ include "config.php";
     <!-- Tabel Data Siswa : Nur -->
     <div class="container">
         <div class="card mt-5">
-            <div class="card-header" style="background-color: #FFD384;">Data Siswa</div>
+            <div class="card-header" style="background-color: #FFD384;">Data Buku</div>
                 <div class="card-body">
                     <table class="table table-hover table-bordered bordered-dark mt-4">
                         <thead>
                             <tr>
-                                <th scope="col">NIS</th>
-                                <th scope="col">Nama Siswa</th>
-                                <th scope="col">Jenis Kelamin</th>
-                                <th scope="col">Alamat</th>
-                                <th scope="col">Kelas</th>
+                                <th scope="col">ID Buku</th>
+                                <th scope="col">Penulis</th>
+                                <th scope="col">Tahun</th>
+                                <th scope="col">Judul</th>
+                                <th scope="col">Kota</th>
+                                <th scope="col">Penerbit</th>
+                                <th scope="col">Cover</th>
+                                <th scope="col">Sinopsis</th>
+                                <th scope="col">Stok</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $cetak = mysqli_query($db, "SELECT * FROM siswa JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
+                            $cetak = mysqli_query($db, "SELECT * FROM buku");
                             while ($data = mysqli_fetch_assoc($cetak)) {
                             ?>
                             <tr>
-                                <td> <?php echo $data['nis']; ?> </td>
-                                <td> <?php echo $data['nama']; ?> </td>
-                                <td> <?php echo $data['jenis_kelamin']; ?> </td>
-                                <td> <?php echo $data['alamat']; ?> </td>
-                                <td> <?php echo $data['id_kelas']; ?> </td>
+                                <td> <?php echo $data['id_buku']; ?> </td>
+                                <td> <?php echo $data['penulis']; ?> </td>
+                                <td> <?php echo $data['tahun']; ?> </td>
+                                <td> <?php echo $data['judul']; ?> </td>
+                                <td> <?php echo $data['kota']; ?> </td>
+                                <td> <?php echo $data['penerbit']; ?> </td>
+                                <td> <?php echo $data['cover']; ?> </td>
+                                <td> <?php echo $data['sinopsis']; ?> </td>
+                                <td> <?php echo $data['stok']; ?> </td>
                             </tr>
                             <?php
                             }
