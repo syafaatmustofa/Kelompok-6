@@ -1,13 +1,6 @@
 <?php
-include "config.php";
+include "../config.php";
 ?>
-
-<?php
-$cetak = mysqli_query($db, "SELECT * FROM siswa JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
-while ($data = mysqli_fetch_assoc($cetak)) {
-}
-?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,89 +9,70 @@ while ($data = mysqli_fetch_assoc($cetak)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-    <style>
-        .col li{
-            list-style-type: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <title>Peminjaman</title>
 </head>
 
 <body>
-    <!-- navbar awal: syafaat -->
-
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Perpustakaan</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            </button>
-            <span class="navbar-text">
-                <a class="nav-link active" aria-current="page" href="#">Home
-                    <button class="btn btn-danger" type="submit">Logout</button>
-                </a></span>
-        </div>
-        </div>
-    </nav>
-    <!-- navbar akhir: syafaat -->
-    <!-- content1 awal:syafaat -->
     <div class="container">
-        <div class="card mt-5">
-            <div class="card-header" style="background-color: #FFD384;">Peminjaman</div>
-            <div class="card-body">
-                <div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <li>ID</li>
-                                <li>NIS</li>
-                                <li>NAMA </li>
-                            </div>
-
-                            <div class="col">
-                                <li>Kelas</li>
-                                <li>Tanggal Pinjam</li>
-                                <li>tanggal Kembali</li>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">NIS</th>
-                            <th scope="col">Nama Siswa</th>
-                            <th scope="col">Jenis Kelamin</th>
-                            <th scope="col">Alamat</th>
-                            <th scope="col">Kelas</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $cetak = mysqli_query($db, "SELECT * FROM siswa JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
-                        while ($data = mysqli_fetch_assoc($cetak)) {
-                        ?>
-                            <tr>
-                                <td> <?php echo $data['nis']; ?> </td>
-                                <td> <?php echo $data['nama']; ?> </td>
-                                <td> <?php echo $data['jenis_kelamin']; ?> </td>
-                                <td> <?php echo $data['alamat']; ?> </td>
-                                <td> <?php echo $data['id_kelas']; ?> </td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
+        <h1 class="text-center">Tambah Peminjaman</h1>
+        <form action="" method="post">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Data Peminjaman</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ID Peminjaman</td>
+                        <td><input type="text" class="form-control" name="id_peminjaman" placeholder="Masukkan Kode Buku"></input></td>
+                    </tr>
+                    <tr>
+                        <td>ID Siswa</td>
+                        <td><input type="text" class="form-control" name="id_siswa" placeholder="Masukkan Nis"></input></td>
+                    </tr>
+                    <tr>
+                        <td>ID Petugas</td>
+                        <td><input type="text" class="form-control" name="id_petugas" placeholder="Masukkan Nip"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Peminjaman</td>
+                        <td><input type="date" class="form-control" name="tanggal_peminjaman" placeholder="Masukkan Tanggal Peminjaman"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Pengembalian</td>
+                        <td><input type="date" class="form-control" name="tanggal_pengembalian" placeholder="Masukkan Tanggal Pengembalian"></input></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="btn-end">
+                <a href="history.php" type="button" class="btn btn-danger"> Kembali </a>
+                <button type="submit" name="submit" class="btn btn-success">Submit</button>
             </div>
-        </div>
+        </form>
     </div>
-    <!-- content1 akhir: syafaat -->
-
-
-
-    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
+
+<?php
+
+if (isset($_POST['submit'])) {
+    $id_peminjaman = $_POST['id_peminjaman'];
+    $id_siswa = $_POST['id_siswa'];
+    $id_petugas = $_POST['id_petugas'];
+    $tanggal_peminjaman = $_POST['tanggal_peminjaman'];
+    $tanggal_pengembalian = $_POST['$tanggal_pengembalian'];
+
+    $query_insert = mysqli_query($db, "INSERT INTO peminjaman
+	VALUES ('$id_peminjaman', '$id_siswa', '$id_petugas', '$tanggal_peminjaman', '$tanggal_pengembalian')");
+if ($query_insert) {
+    header("location: history.php");
+} else
+    echo "Tidak bisa terhubung";
+}
+
+?>
