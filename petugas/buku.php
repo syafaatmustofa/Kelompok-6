@@ -1,5 +1,5 @@
 <?php
-include "config.php";
+include "../config.php";
 ?>
 
 <!DOCTYPE html>
@@ -9,7 +9,7 @@ include "config.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <title>Home Data</title>
 
 </head>
@@ -72,7 +72,7 @@ include "config.php";
                                 <td> <?php echo $data['judul']; ?> </td>
                                 <td> <?php echo $data['kota']; ?> </td>
                                 <td> <?php echo $data['penerbit']; ?> </td>
-                                <td> <?php echo $data['cover']; ?> </td>
+                                <td><img src="../assets/img/<?= $data['cover'] ?>" class="rounded" width="75px" alt=""></td>
                                 <td> <?php echo $data['sinopsis']; ?> </td>
                                 <td> <?php echo $data['stok']; ?> </td>
                             </tr>
@@ -86,7 +86,7 @@ include "config.php";
         </div>
     </div>
     <!-- Akhir Tabel Data Siswa : Nur -->
-    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

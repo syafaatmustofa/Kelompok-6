@@ -30,7 +30,6 @@ include "../config.php";
                 <th scope="col">Petugas</th>
                 <th scope="col">Tanggal Peminjaman</th>
                 <th scope="col">Tanggal Pengembalian</th>
-                <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -44,10 +43,6 @@ include "../config.php";
                     <td><?= $data['nip'] ?>-<?= $data['nama'] ?></td>
                     <td><?= $data['tanggal_peminjaman'] ?></td>
                     <td><?= $data['tanggal_pengembalian'] ?></td>
-                    <td colspan="2">
-                        <a href="editpeminjaman.php?id_pmj=<?php echo $data['id_peminjaman']; ?> "> <button class="btn btn-warning" id="edit">Edit</button></a>
-                        <a href="deletepeminjaman.php?id_pmj=<?php echo $data['id_peminjaman']; ?> "><button class="btn btn-danger" id="hapus">Hapus</button>
-                    </td>
                 </tr>
             <?php
             }
@@ -55,6 +50,7 @@ include "../config.php";
     </table>
     <!-- tabel e -->
     <div class="text-center">
+    <a href="buku.php" type="button" class="btn btn-danger"> Kembali </a>
         <a href="peminjaman.php">
             <button class="btn btn-primary" id="tambah">
                 Tambah Data
