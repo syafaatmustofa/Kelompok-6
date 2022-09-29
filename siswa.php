@@ -72,7 +72,6 @@ include "config.php";
                         </tbody>
                     </table>
                 </div>
-
             </div>
     </div>
     <!-- Akhir Tabel Data Siswa : Nur -->
