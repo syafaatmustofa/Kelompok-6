@@ -48,7 +48,7 @@ if (!$_SESSION['nip']) {
             </div>
         </form>
         <input type="submit" class="btn btn-primary" name="submit" value="submit" />
-        <a href="admin_peminjaman.php" class="btn btn-danger"> Kembali</a>
+        <a href="peminjaman.php" class="btn btn-danger"> Kembali</a>
     </div>
 
 
