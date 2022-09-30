@@ -1,0 +1,10 @@
+* ,html , body{
+    padding: 0;
+    margin: o;
+}
+
+
+.accordion{
+    width: 400px;
+    height: 100vh;
+}
