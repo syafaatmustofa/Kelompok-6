@@ -10,8 +10,60 @@ include "../config.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Home Data</title>
+    <style>
+        *,
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+        }
 
+        .sidebar {
+
+            position: absolute;
+            padding-top: 50px;
+            width: 150px;
+            height: 100vh;
+            background-color: #FF884B;
+        }
+
+        .accordion-item{
+            background-color: #FF884B;
+            border: none; 
+        }
+
+        .accordion-body a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            text-decoration: none;
+        }
+
+        .accordion-button{
+            background-color: #FF884B;
+            border: none;
+            width: 100px;
+        }
+
+        .tabel {
+            margin-left: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: fit-content;
+        }
+
+        .icon {
+            width: 200px;
+            font-size: 2em;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,24 +77,78 @@ include "../config.php";
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
+                        <a class="nav-link active"><button class="btn btn-danger">Logout</button></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- Akhir Navbar : Nur -->
+    <!-- sidebar -->
+    <div class="sidebar d-inline-flex">
+        <div class="container position-relative">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="icon bi bi-book pe-2 "></i>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <a href="#">Melihat Buku</a>
+                        </div>
+                    </div>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <a href="#">Menambah Buku</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="icon bi bi-bag-plus pe-2"></i>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <a href="#">Menambahan Peminjaman</a>
+                        </div>
+                    </div>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <a href="#">History Peminjaman</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="icon bi bi-bag-check pe-2"></i>
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <a href="#">Menambahan Pengembalian</a>
+                        </div>
+                    </div>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <a href="#">History Pengembalian</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- sidebar -->
+
     <!-- Tabel Data Siswa : Nur -->
-    <div class="container">
+    <div class="container tabel">
         <div class="card mt-5">
             <div class="card-header" style="background-color: #FFD384;">Data Buku</div>
             <div class="card-body">
