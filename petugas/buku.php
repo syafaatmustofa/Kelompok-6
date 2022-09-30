@@ -14,9 +14,7 @@ include "../config.php";
     <title>Home Data</title>
 
     <style>
-        *,
-        html,
-        body {
+        * {
             padding: 0;
             margin: 0;
         }
@@ -79,12 +77,10 @@ include "../config.php";
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active"><button class="btn btn-danger">Logout</button></a>
+                        <a href="index.php" class="nav-link active">HOME</a>
                     </li>
                 </ul>
+                <a href="loginpetugas.php" class="nav-link active"><button class="btn btn-danger">Logout</button></a>
             </div>
         </div>
     </nav>
@@ -101,12 +97,12 @@ include "../config.php";
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="#">Melihat Buku</a>
+                            <a href="buku.php">Melihat Buku</a>
                         </div>
                     </div>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="#">Menambah Buku</a>
+                            <a href="crudbuku.php">Menambah Buku</a>
                         </div>
                     </div>
                 </div>
@@ -118,12 +114,12 @@ include "../config.php";
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="#">Menambahan Peminjaman</a>
+                            <a href="peminjaman.php">Menambahan Peminjaman</a>
                         </div>
                     </div>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="#">History Peminjaman</a>
+                            <a href="history.php">History Peminjaman</a>
                         </div>
                     </div>
                 </div>
@@ -135,12 +131,12 @@ include "../config.php";
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="#">Menambahan Pengembalian</a>
+                            <a href="pengembalian.php">Menambahan Pengembalian</a>
                         </div>
                     </div>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="#">History Pengembalian</a>
+                            <a href="history.php">History Pengembalian</a>
                         </div>
                     </div>
                 </div>

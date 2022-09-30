@@ -2,19 +2,19 @@
 include("../config.php");
 session_start();
 
-if (isset($_SESSION['nip'])) {
-    header('location: buku.php');
+if (isset($_SESSION['nis'])) {
+    header('location: siswa.php');
     exit;
 }
 
 if (isset($_POST["login"])) {
-    $username = $_POST["nip"];
-    $query = mysqli_query($db, "SELECT * FROM petugas WHERE nip = '$username'");
+    $username = $_POST["nis"];
+    $query = mysqli_query($db, "SELECT * FROM siswa WHERE nis = '$username'");
     $data = mysqli_fetch_assoc($query);
 
     if ($data) {
-        $_SESSION['nip'] = $data['nip'];
-        header('location:buku.php');
+        $_SESSION['nis'] = $data['nis'];
+        header('location:siswa.php');
     } else { ?>
     <script>
         alert("ora isok")
@@ -39,11 +39,11 @@ if (isset($_POST["login"])) {
     <div class=" container mx-auto p-5 mt-5  bg-secondary bg-opacity-10 border border-secondary">
         <form method="POST">
             <div class="text-center">
-                <h1>HALAMAN LOGIN PETUGAS</h1>
+                <h1>HALAMAN LOGIN SISWA</h1>
             </div>
             <div class="mb-3 form-group">
                 <label for="username">ID Anda</label>
-                <input type="password" name="nip" required class="form-control" id="nip" placeholder="Masukkan ID Anda">
+                <input type="password" name="nis" required class="form-control" id="nis" placeholder="Masukkan ID Anda">
             </div>
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" onclick="lihat()">
@@ -61,7 +61,7 @@ if (isset($_POST["login"])) {
     </div>
     <script>
         function lihat() {
-            let x = document.getElementById("nip");
+            let x = document.getElementById("nis");
             if (x.type == "password") {
                 x.type = "text";
             } else {

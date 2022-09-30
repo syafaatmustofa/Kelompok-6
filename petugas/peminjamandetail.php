@@ -78,12 +78,10 @@ include "../config.php";
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active"><button class="btn btn-danger">Logout</button></a>
+                        <a href="history.php" class="nav-link active">HOME</a>
                     </li>
                 </ul>
+                <a class="nav-link active"><button class="btn btn-danger">Logout</button></a>
             </div>
         </div>
     </nav>
@@ -95,51 +93,51 @@ include "../config.php";
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <i class="icon bi bi-book pe-2 "></i>
+                        <i class="icon bi bi-book pe-2 "></i>
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="#">Melihat Buku</a>
+                            <a href="buku.php">Melihat Buku</a>
                         </div>
                     </div>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="#">Menambah Buku</a>
+                            <a href="crudbuku.php">Menambah Buku</a>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <i class="icon bi bi-bag-plus pe-2"></i>
+                        <i class="icon bi bi-bag-plus pe-2"></i>
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="#">Menambahan Peminjaman</a>
+                            <a href="peminjaman.php">Menambahan Peminjaman</a>
                         </div>
                     </div>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="#">History Peminjaman</a>
+                            <a href="history.php">History Peminjaman</a>
                         </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <i class="icon bi bi-bag-check pe-2"></i>
+                        <i class="icon bi bi-bag-check pe-2"></i>
                         </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="#">Menambahan Pengembalian</a>
+                            <a href="pengembalian.php">Menambahan Pengembalian</a>
                         </div>
                     </div>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <a href="#">History Pengembalian</a>
+                            <a href="history.php">History Pengembalian</a>
                         </div>
                     </div>
                 </div>
@@ -147,6 +145,7 @@ include "../config.php";
         </div>
     </div>
     <!-- sidebar -->
+
 
 
     <!-- Tabel Data Siswa : Nur -->
