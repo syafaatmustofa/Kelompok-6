@@ -10,8 +10,9 @@ include "../config.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>Home Data</title>
+    <title>History Peminjaman</title>
     <style>
         *,
         html,
@@ -29,20 +30,20 @@ include "../config.php";
             background-color: #FF884B;
         }
 
-        .accordion-item{
+        .accordion-item {
             background-color: #FF884B;
-            border: none; 
+            border: none;
+            width: 138px;
         }
 
-        .accordion-body a{
-            display: flex;
+        .accordion-body a {
             justify-content: center;
             align-items: center;
             color: black;
             text-decoration: none;
         }
 
-        .accordion-button{
+        .accordion-button {
             background-color: #FF884B;
             border: none;
             width: 100px;
@@ -92,7 +93,7 @@ include "../config.php";
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <i class="icon bi bi-book pe-2 "></i>
+                            <i class="icon bi bi-book pe-2 "></i>
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -109,7 +110,7 @@ include "../config.php";
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <i class="icon bi bi-bag-plus pe-2"></i>
+                            <i class="icon bi bi-bag-plus pe-2"></i>
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -126,7 +127,7 @@ include "../config.php";
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <i class="icon bi bi-bag-check pe-2"></i>
+                            <i class="icon bi bi-bag-check pe-2"></i>
                         </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -145,43 +146,65 @@ include "../config.php";
     </div>
     <!-- sidebar -->
 
-    <!-- Tabel Data Siswa : Nur -->
+    <!-- a -->
     <div class="container tabel">
         <div class="card mt-5">
-            <div class="card-header" style="background-color: #FFD384;">Data Buku</div>
+            <div class="card-header" style="background-color: #f7f7f7;">
+                <h1 class="mx-auto">PEMINJAMAN</h1>
+            </div>
             <div class="card-body">
+                <!-- search -->
+                <div class="container">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+                <!-- search -->
                 <table class="table table-hover table-bordered bordered-dark mt-4">
                     <thead>
                         <tr>
-                            <th scope="col">Nis</th>
-                            <th scope="col">Nama Siswa</th>
-                            <th scope="col">Jenis Kelamin</th>
-                            <th scope="col">Alamat</th>
-                            <th scope="col">ID Kelas</th>
+                            <th scope="col">ID Pengembalian</th>
+                            <th scope="col">ID Peminjaman</th>
+                            <th scope="col">Tanggal Pengembalian</th>
+                            <th scope="col">Denda</th>
+                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $cetak = mysqli_query($db, "SELECT * FROM siswa");
-                        while ($data = mysqli_fetch_assoc($cetak)) {
+                        $ambil = mysqli_query($db, "SELECT * FROM pengembalian join peminjaman on pengembalian.id_peminjaman = peminjaman.id_peminjaman");
+                        while ($data = mysqli_fetch_assoc($ambil)) {
                         ?>
                             <tr>
-                                <td> <?php echo $data['nis']; ?> </td>
-                                <td> <?php echo $data['namas']; ?> </td>
-                                <td> <?php echo $data['jenis_kelamin']; ?> </td>
-                                <td> <?php echo $data['alamat']; ?> </td>
-                                <td> <?php echo $data['id_kelas']; ?> </td>
+                                <td><?= $data['id_pengembalian'] ?></td>
+                                <td><?= $data['id_peminjaman'] ?></td>
+                                <td><?= $data['tanggal_pengembalian'] ?></td>
+                                <td><?= $data['denda'] ?></td>
+                                <td colspan="3">
+                                    <a href="editpengembalian.php?id_pgm=<?php echo $data['id_pengembalian']; ?> "> <button class="btn btn-warning" id="edit">Edit</button></a>
+                                    <a href="deletepengembalian.php?id_pgm=<?php echo $data['id_pengembalian']; ?> "><button class="btn btn-danger" id="hapus">Hapus</button></a>
+                                    <a href="pengembalian_detail.php?id_pgm=<?php echo $data['id_pengembalian'];?>"><button class="btn btn-secondary" id="detail">Details</button></a>
+                                </td>
                             </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
             </div>
-
+        <?php
+                        }
+        ?>
+        </tbody>
+        </table>
+        <div class="text-center">
+            <a href="buku.php" type="button" class="btn btn-danger"> Kembali </a>
+            <a href="tambahpengembalian.php">
+                <button class="btn btn-primary" id="tambah">
+                    Tambah Data
+                </button>
+            </a>
+        </div>
         </div>
     </div>
-    <!-- Akhir Tabel Data Siswa : Nur -->
+
+    <!-- a -->
     <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 

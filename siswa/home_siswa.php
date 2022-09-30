@@ -61,7 +61,7 @@ include "../config.php";
                             ?>
                             <tr>
                                 <td> <?php echo $data['nis']; ?> </td>
-                                <td> <?php echo $data['nama']; ?> </td>
+                                <td> <?php echo $data['namas']; ?> </td>
                                 <td> <?php echo $data['jenis_kelamin']; ?> </td>
                                 <td> <?php echo $data['alamat']; ?> </td>
                                 <td> <?php echo $data['id_kelas']; ?> </td>
