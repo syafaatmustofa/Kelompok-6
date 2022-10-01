@@ -6,7 +6,7 @@ $id = $_GET['id_buku'];
 <?php
 include "../layout/header.php";
 ?>
-<title>Data Buku</title>
+<title>Edit Buku</title>
 </head>
 
 <body class="sb-nav-fixed">
@@ -23,62 +23,73 @@ include "../layout/header.php";
             <div class="card mt-5 mb-5">
                 <div class="card-header text-white" style="background-color: #827397;">Tambah Data Siswa</div>
                 <div class="card-body mb-3">
-                    <form class="mt-1" action="" method="POST">
-                        <?php
-                        $cetak = mysqli_query($db, "SELECT * FROM siswa, kelas WHERE siswa.id_kelas = kelas.id_kelas AND nis=$id");
-                        $data = mysqli_fetch_assoc($cetak);
-                        ?>
-                        <div class="mb-3">
-                            <label class="form-label">NIS</label>
-                            <input type="text" class="form-control" name="nis" id="nis" value="<?= $data['nis']?>"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Nama Siswa</label>
-                            <input type="text" class="form-control" name="nama" id="nama" value="<?= $data['nama']?>"
-                                required>
-                        </div>
-                        <div class=" mb-3">
-                            <label class="form-label">Jenis Kelamin</label>
-                            <br>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Laki-laki"
-                                    id="jenis_kelamin1">
-                                <label class="form-check-label" for="jenis_kelamin1">
-                                    Laki-laki
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Perempuan"
-                                    id="jenis_kelamin2">
-                                <label class="form-check-label" for="jenis_kelamin2">
-                                    Perempuan
-                                </label>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Alamat</label>
-                            <input type="text" class="form-control" name="alamat" id="alamat"
-                                value="<?= $data['alamat']?>" required>
-                        </div>
-                        <div class=" mb-3">
-                            <label for="pilihkelas">Kelas</label>
-                            <select class="form-control" name="kelas" id="kelas">
-                                <!-- <option value="">--Pilih Kelas--</option> -->
-                                <?php
-                                echo "<option value=$data[id_kelas]>$data[nama_kelas]</option>";
-                                $sql = mysqli_query($db, "SELECT * FROM kelas");
-                                    while ($data = mysqli_fetch_array($sql)) {
-                                ?>
-                                <option value="<?php echo $data['id_kelas'];?>"><?php echo $data['nama_kelas'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary" value="edit" name="edit">Simpan</button>
-                    </form>
+                     <form action="editproses_buku.php" method="post" enctype="multipart/form-data">
+                                    <?php
+                                    $id = $_GET['id_buku'];
+                                    $ambil = mysqli_query($db, "SELECT * FROM buku WHERE id_buku='$id'");
+                                    while ($data = mysqli_fetch_array($ambil)) {
+                                    ?>
+                                        <div class="row mb-3">
+                                            <div class="col-6">
+                                                <div class="input-1 w-50 ms-auto">
+                                                    <div class="mb-3">
+                                                        <label class="form-label" for="idm">ID Buku</label>
+                                                        <input type="text" id="idm" class="form-control" readonly name="id_buku" value="<?php echo $data['id_buku']; ?>">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Penulis</label>
+                                                        <input type="text" class="form-control" name="penulis" value="<?php echo $data['penulis']; ?>">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Judul</label>
+                                                        <input type="text" class="form-control" name="judul" value="<?php echo $data['judul']; ?>">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Tahun</label>
+                                                        <input type="number" class="form-control" min="1900" max="2099" name="tahun" value="<?php echo $data['tahun']; ?>">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Penerbit</label>
+                                                        <input type="text" class="form-control" name="penerbit" value="<?php echo $data['penerbit']; ?>">
+                                                    </div>
+                                                    <div>
+                                                        <label class="form-label">Kota</label>
+                                                        <input type="text" class="form-control" name="kota" value="<?php echo $data['kota']; ?>">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="input-2 w-50">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Sinopsis</label>
+                                                        <textarea name="sinopsis" class="form-control" rows="3"><?php echo $data['sinopsis']; ?></textarea>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Stok</label>
+                                                        <input type="number" class="form-control" name="stok" value="<?php echo $data['stok']; ?>">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Cover</label>
+                                                        <input type="file" class="form-control" name="cover">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label d-block">Cover sebelumnya : </label>
+                                                        <img src="./../assets/bootstrap/img/<?= $data['cover'] ?>" class="rounded" width="70px" alt="">
+                                                        <?php
+                                                        if ($data['cover'] == "") { ?>
+                                                            <img src="https://via.placeholder.com/500x500.png?text=PAS+FOTO+SISWA" width="70px" class="rounded">
+                                                        <?php } ?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
+                                </form>
                 </div>
             </div>
         </div>
@@ -102,18 +113,23 @@ include "../layout/header.php";
 </html>
 
 <?php
-if (isset($_POST['edit'])) {
-    $nis = $_POST['nis'];
-    $nama = $_POST['nama'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $alamat = $_POST['alamat'];
-    $kelas = $_POST['kelas'];
 
-    $query = mysqli_query($db, "UPDATE siswa SET nis='$nis', nama='$nama', jenis_kelamin='$jenis_kelamin', alamat='$alamat', id_kelas='$kelas' WHERE nis=$id");
-    
-    if($query){
-        echo "<script>alert('Data berhasil diupdate!'); window.location='data_siswa.php';</script>";
-    } else {
-        echo 'Data Gagal ditambahkan';
-    }
+$id_buku= $_POST['id_buku'];
+$penulis = $_POST['penulis'];
+$judul = $_POST['judul'];
+$tahun = $_POST['tahun'];
+$penerbit = $_POST['penerbit'];
+$kota = $_POST['kota'];
+$sinopsis = $_POST['sinopsis'];
+$stok = $_POST['stok'];
+$cover = $_FILES['cover']['name'];
+$tmp_name = $_FILES['cover']['tmp_name'];
+move_uploaded_file($tmp_name, "./../assets/bootstrap/img/".$cover);
+
+$query = mysqli_query($db, "UPDATE buku SET penulis='$penulis', tahun='$tahun', judul='$judul', kota='$kota', penerbit='$penerbit', cover='$cover', sinopsis='$sinopsis', stok='$stok' WHERE id_buku='$id_buku'");
+
+if($query) {
+    header ("location:home_buku.php");
 }
+
+?>
