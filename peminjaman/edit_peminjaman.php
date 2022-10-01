@@ -1,83 +1,96 @@
 <?php
-include 'config.php';
+include "../config.php";
+$id = $_GET['id_peminjaman'];
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <title>Document</title>
+<?php
+include "../layout/header.php";
+?>
+<title>Data Buku</title>
 </head>
 
-<body>
-    <div class="container">
+<body class="sb-nav-fixed">
+    <?php 
+    include "../layout/navbar.php";
+    ?>
+    <div id="layoutSidenav">
         <?php
-        $id = $_GET['id_mhs'];
-        $ambil = mysqli_query($db, "select  * from mahasiswa where id_mahasiswa='$id'");
-        while ($data = mysqli_fetch_array($ambil)) { ?>
-
-            <div class="m-4">
-                <form action="editproses.php" method="POST" enctype="multipart/form-data">
-                    <div class="m-3">
-                        <label class="form-label">id_Mahasiswa</label>
-                        <input type="text" class="form-control" readonly name="id_mahasiswa" value="<?= $data['id_mahasiswa']; ?>">
-                    </div>
-                    <div class="m-3">
-                        <label class="form-label">Nama Mahasiswa</label>
-                        <input type="text" class="form-control" name="nama" value="<?= $data['nama']; ?>">
-                    </div>
-                    <div class="m-3">
-                        <label class="form-label">Tanggal Lahir</label>
-                        <input type="date" class="form-control" name="tgl_lahir" value="<?= $data['tgl_lahir']; ?>">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">NIM</label>
-                        <input type="number" class="form-control" name="nim" value="<?= $data['nim']; ?>">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Jurusan</label>
-                        <select class="form-select w-50 mx-auto" aria-label="Default select example " name="jurusan">
-                            <option disabled selected>-- Pilih Jurusan --</option>
-                            <?php
-                            include 'config2.php';
-
-                            $ambil2 = mysqli_query($db, "select * from jurusan");
-                            while ($data2 = mysqli_fetch_array($ambil2)) {
-                                if ($data['id_jurusan'] == $data2['id_jurusan']) {
-                                    echo "<option value=$data2[id_jurusan] selected> $data2[id_jurusan] - $data2[nama_jurusan]</option>";
-                                } else {
-                                    echo "<option value=$data2[id_jurusan]> $data2[id_jurusan] - $data2[nama_jurusan]</option> ";
-                                }
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Foto</label>
-                        <input type="file" class="form-control w-50 mx-auto" name="foto">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" style="position: relative; left: 25%;">Foto sebelumnya : </label>
-                        <img src="img/<?= $data['foto'] ?>" class="rounded" width="70px" alt="" style="display: block; position: relative; left: 25%;">
+            include "../layout/sidebar.php";
+            ?>
+    </div>
+    <div id="layoutSidenav_content" class="w-75 h-100" style="position: relative; left: 20%; margin-top: 100px;">
+        <div class="container">
+            <div class="card mt-5 mb-5">
+                <div class="card-header text-white" style="background-color: #827397;">Tambah Data Siswa</div>
+                <div class="card-body mb-3">
+                    <form class="mt-1" action="" method="POST">
                         <?php
-                        if ($data['foto'] == "") { ?>
-                            <img src="https://via.placeholder.com/500x500.png?text=PAS+FOTO+SISWA" width="70px" class="rounded" style="display: block; position: relative; left: 25%;">
-                        <?php } ?>
-                        <!-- <input type="text" class="form-control w-50 mx-auto" name="foto" value="<?php echo $data['foto']; ?>"> -->
-                    </div>
-                    <button type="submit" class="btn btn-primary" name="submit">Tambah Data</button>
-                </form>
+                       $ambil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip AND id_peminjaman=$id");
+                        $data = mysqli_fetch_assoc($ambil);
+                        ?>
+                        <div class="mb-3">
+                            <label class="form-label">ID Peminjaman</label>
+                            <input type="text" class="form-control" name="id_peminjaman" id="id_peminjaman" value="<?= $data['id_peminjaman']?>"
+                                readonly>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">ID Siswa</label>
+                            <input type="text" class="form-control" name="nis" id="nis" value="$data['nis'] ?>-<?= $data['namas'] ?>"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">ID Petugas</label>
+                            <input type="text" class="form-control" name="nip" id="nip" value=<?= $data['nip'] ?>-<?= $data['nama'] ?>"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tanggal Peminjaman</label>
+                            <input type="date" class="form-control" name="tanggal_peminjaman" id="tanggal_peminjaman"
+                                value="<?= $data['tanggal_peminjaman'] ?>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Tanggal Pengembalian</label>
+                            <input type="date" class="form-control" name="tanggal_pengembalian" id="tanggal_pengembalian"
+                                value="<?= $data['tanggal_pengembalian'] ?>" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" value="edit" name="edit">Simpan</button>
+                    </form>
+                </div>
             </div>
-        <?php
-        }
-        ?>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="../assets/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous">
+    </script>
+    <script src="../assets/demo/chart-area-demo.js"></script>
+    <script src="../assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous">
+    </script>
+    <script src="../assets/js/datatables-simple-demo.js"></script>
+
 </body>
 
 </html>
 
 <?php
+if (isset($_POST['edit'])) {
+    $id_peminjaman = $_POST['id_peminjaman'];
+    $id_siswa = $_POST['nis'];
+    $id_petugas = $_POST['nip'];
+    $tanggal_peminjaman = $_POST['tanggal_peminjaman'];
+    $tanggal_pengembalian = $_POST['tanggal_pengembalian'];
+
+    $query = mysqli_query($db, "UPDATE peminjaman SET id_peminjaman='$id_peminjaman', id_siswa='$nis', id_petugas='$nip', tanggal_peminjaman='$tanggal_peminjaman', tanggal_pengembalian='$tanggal_pengembalian' WHERE id_peminjaman=$id");
+    
+    if($query){
+        echo "<script>alert('Data berhasil diupdate!'); window.location='home_peminjaman.php';</script>";
+    } else {
+        echo 'Data Gagal ditambahkan';
+    }
+}
