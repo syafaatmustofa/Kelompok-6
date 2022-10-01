@@ -1,6 +1,6 @@
 <?php
 include "../config.php";
-$id = $_GET['id_peminjaman'];
+$id = $_GET['id_pengembalian'];
 ?>
 
 <?php
@@ -23,35 +23,35 @@ include "../layout/header.php";
             <div class="card mt-5 mb-5">
                 <div class="card-header text-white" style="background-color: #827397;">Tambah Data Siswa</div>
                 <div class="card-body mb-3">
-                    <form class="mt-1" action="" method="POST">
+                    <form class="mt-1" action="editproses_pengembalian" method="POST">
                         <?php
-                       $ambil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip AND id_peminjaman=$id");
+                        $ambil = mysqli_query($db, "SELECT * FROM pengembalian join peminjaman on pengembalian.id_peminjaman = peminjaman.id_peminjaman id_pengembalian='$id'");
                         $data = mysqli_fetch_assoc($ambil);
                         ?>
                         <div class="mb-3">
-                            <label class="form-label">ID Peminjaman</label>
-                            <input type="text" class="form-control" name="id_peminjaman" id="id_peminjaman" value="<?= $data['id_peminjaman']?>"
+                            <label class="form-label">ID Pengembalian</label>
+                            <input type="text" class="form-control" name="id_pengembalian" id="id_pengembalian" value="<?= $data['id_pengembalian']?>"
                                 readonly>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">ID Siswa</label>
-                            <input type="text" class="form-control" name="nis" id="nis" value="$data['nis'] ?>-<?= $data['namas'] ?>"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">ID Petugas</label>
-                            <input type="text" class="form-control" name="nip" id="nip" value=<?= $data['nip'] ?>-<?= $data['nama'] ?>"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tanggal Peminjaman</label>
-                            <input type="date" class="form-control" name="tanggal_peminjaman" id="tanggal_peminjaman"
-                                value="<?= $data['tanggal_peminjaman'] ?>" required>
+                            <label class="form-label">ID Peminjaman</label>
+                            <select class="form-select" aria-label="Default select example" name="id_peminjaman">
+                            <?php
+                        $ambil = mysqli_query($db, "SELECT * FROM pengembalian");
+                        while ($data = mysqli_fetch_array($ambil)) {
+                        ?>
+                        <option value="<?= $data['id_peminjaman'] ?>"> } ?></option>
+                        </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tanggal Pengembalian</label>
-                            <input type="date" class="form-control" name="tanggal_pengembalian" id="tanggal_pengembalian"
-                                value="<?= $data['tanggal_pengembalian'] ?>" required>
+                            <input type="date" class="form-control" name="tanggal_pengembalian" id="tanggal_pengembalian" value=<<?= $data['tanggal_pengembalian'] ?>"
+                                required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Denda</label>
+                            <input type="date" class="form-control" name="denda" id="denda"
+                                value="<?= $data['denda'] ?>" required>
                         </div>
                         
                         <button type="submit" class="btn btn-primary" value="edit" name="edit">Simpan</button>
@@ -80,16 +80,15 @@ include "../layout/header.php";
 
 <?php
 if (isset($_POST['edit'])) {
+    $id_pengembalian = $_POST['id_pengembalian'];
     $id_peminjaman = $_POST['id_peminjaman'];
-    $id_siswa = $_POST['nis'];
-    $id_petugas = $_POST['nip'];
-    $tanggal_peminjaman = $_POST['tanggal_peminjaman'];
     $tanggal_pengembalian = $_POST['tanggal_pengembalian'];
+    $denda = $_POST['denda'];
 
-    $query = mysqli_query($db, "UPDATE peminjaman SET id_peminjaman='$id_peminjaman', id_siswa='$nis', id_petugas='$nip', tanggal_peminjaman='$tanggal_peminjaman', tanggal_pengembalian='$tanggal_pengembalian' WHERE id_peminjaman=$id");
+    $query = mysqli_query($db, "UPDATE pengembalian SET id_pengembalian='$id_pengembalian', id_peminjaman='$id_pengembalian', tanggal_pengembalian='$tanggal_pengembalian', denda='$denda' WHERE id_pengembalian=$id");
     
     if($query){
-        echo "<script>alert('Data berhasil diupdate!'); window.location='home_peminjaman.php';</script>";
+        echo "<script>alert('Data berhasil diupdate!'); window.location='home_pengembalian.php';</script>";
     } else {
         echo 'Data Gagal ditambahkan';
     }
