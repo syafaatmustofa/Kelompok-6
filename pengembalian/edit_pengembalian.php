@@ -93,3 +93,4 @@ if (isset($_POST['edit'])) {
         echo 'Data Gagal ditambahkan';
     }
 }
+?>
