@@ -188,12 +188,7 @@ include "../config.php";
                             </tbody>
                         </table>
                         <div class="text-center">
-                            <a href="buku.php" type="button" class="btn btn-danger"> Kembali </a>
-                            <a href="peminjaman.php">
-                                <button class="btn btn-primary" id="tambah">
-                                    Tambah Data
-                                </button>
-                            </a>
+                            <a href="home_peminjaman.php" type="button" class="btn btn-danger"> Kembali </a>
                     </div>
                 </div>
             </div>
