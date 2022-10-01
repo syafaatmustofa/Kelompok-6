@@ -23,7 +23,7 @@ include "../layout/header.php";
             <div class="card mt-5 mb-5">
                 <div class="card-header text-white" style="background-color: #827397;">Tambah Data Siswa</div>
                 <div class="card-body mb-3">
-                    <form class="mt-1" action="" method="POST">
+                    <form class="mt-1" action="editproses_peminjaman.php" method="POST">
                         <?php
                        $ambil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip AND id_peminjaman=$id");
                         $data = mysqli_fetch_assoc($ambil);
