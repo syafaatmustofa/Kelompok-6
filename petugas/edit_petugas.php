@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../config.php';
 
 if (isset($_POST['submit'])) {
   $password = $_POST['password'];
@@ -14,13 +14,14 @@ if (isset($_POST['submit'])) {
     $alamat = $_POST['alamat'];
     $password = $_POST['password'];
 
-    $query = mysqli_query($db, "update petugas set nama='$nama', jenis_kelamin='$jenis_kelamin', alamat='$alamat', password='$password' where nip='$nip'");
+    $query = mysqli_query($db, "UPDATE petugas SET nama='$nama', jenis_kelamin='$jenis_kelamin', alamat='$alamat', password='$password' WHERE nip='$nip'");
 
     if ($query) {
-      header("location:petugas.php");
+      header("location:home_petugas.php");
     }
   }
 }
+?>
 
 <?php
 include "../layout/header.php";
@@ -38,71 +39,82 @@ include "../layout/header.php";
             ?>
     </div>
     <div id="layoutSidenav_content" class="w-75 h-100" style="position: relative; left: 20%; margin-top: 100px;">
-        <div class="container">
-            <div class="card mt-5 mb-5">
-                <div class="card-header text-white" style="background-color: #827397;">Tambah Data Siswa</div>
-                <div class="card-body mb-3">
-                    <form class="mt-1" action="" method="POST">
-                        <?php
-                        $cetak = mysqli_query($db, "SELECT * FROM siswa, kelas WHERE siswa.id_kelas = kelas.id_kelas AND nis=$id");
-                        $data = mysqli_fetch_assoc($cetak);
-                        ?>
-                        <div class="mb-3">
-                            <label class="form-label">NIS</label>
-                            <input type="text" class="form-control" name="nis" id="nis" value="<?= $data['nis']?>"
-                                required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Nama Siswa</label>
-                            <input type="text" class="form-control" name="nama" id="nama" value="<?= $data['nama']?>"
-                                required>
-                        </div>
-                        <div class=" mb-3">
-                            <label class="form-label">Jenis Kelamin</label>
-                            <br>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Laki-laki"
-                                    id="jenis_kelamin1">
-                                <label class="form-check-label" for="jenis_kelamin1">
-                                    Laki-laki
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Perempuan"
-                                    id="jenis_kelamin2">
-                                <label class="form-check-label" for="jenis_kelamin2">
-                                    Perempuan
-                                </label>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Alamat</label>
-                            <input type="text" class="form-control" name="alamat" id="alamat"
-                                value="<?= $data['alamat']?>" required>
-                        </div>
-                        <div class=" mb-3">
-                            <label for="pilihkelas">Kelas</label>
-                            <select class="form-control" name="kelas" id="kelas">
-                                <!-- <option value="">--Pilih Kelas--</option> -->
-                                <?php
-                                echo "<option value=$data[id_kelas]>$data[nama_kelas]</option>";
-                                $sql = mysqli_query($db, "SELECT * FROM kelas");
-                                    while ($data = mysqli_fetch_array($sql)) {
-                                ?>
-                                <option value="<?php echo $data['id_kelas'];?>"><?php echo $data['nama_kelas'];?>
-                                </option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary" value="edit" name="edit">Simpan</button>
-                    </form>
-                </div>
+        <div class="container-fluid py-4">
+
+      <!-- <div class="posts-list">data</div> -->
+      <div class="card mb-4">
+        <div class="card-body px-0 pt-0 pb-2">
+          <div class="form-wrapper">
+            <div class="judul text-center my-4">
+              <h3>Edit Petugas</h3>
             </div>
+            <!-- start form -->
+            <form action="" method="post" enctype="multipart/form-data">
+              <?php
+              $id = $_GET['nip'];
+              $ambil = mysqli_query($db, "SELECT * FROM petugas WHERE nip='$id'");
+              while ($data = mysqli_fetch_assoc($ambil)) {
+
+              ?>
+                <div class="input-1 w-50 mx-auto">
+                  <div class="mb-3">
+                    <label class="form-label">NIP</label>
+                    <input type="text" class="form-control" readonly name="nip" value="<?= $data['nip'] ?>">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Nama Petugas</label>
+                    <input type="text" class="form-control" name="nama" value="<?= $data['nama'] ?>">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Jenis kelamin sebelumnya : </label>
+                    <?php
+                    if ($data['jenis_kelamin'] == "P") {
+                      echo "<span><h6>Perempuan</h6></span>";
+                    } else {
+                      echo "<span><h6>Laki-laki</h6></span>";
+                    }
+                    ?>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Pilih Jenis Kelamin</label>
+                    <select class="form-select" required name="jenis_kelamin">
+                      <option disabled selected value="">-- Pilih Jenis Kelamin --</option>
+                      <option value="L">Laki-laki</option>
+                      <option value="P">Perempuan</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Alamat</label>
+                    <input type="text" class="form-control" name="alamat" value="<?= $data['alamat'] ?>">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" name="password" required id="password" onkeyup="check()" value="<?= $data['password'] ?>" class="form-control">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Konfirmasi Password</label>
+                    <input type="password" name="cpassword" required id="cpassword" onkeyup="check()" class="form-control">
+                    <div>
+                      <span id="cek_password" class="form-label"></span>
+                    </div>
+                  </div>
+                  <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="lihat()">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Lihat password</label>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn bg-gradient-primary" name="submit">Edit</button>
+                </div>
+              <?php
+              }
+              ?>
+            </form>
+            <!-- end form -->
+          </div>
+          <!-- <div class="table-responsive p-0"></div> -->
         </div>
-    </div>
-    </div>
+      </div>
     </div>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
@@ -115,24 +127,32 @@ include "../layout/header.php";
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous">
     </script>
     <script src="../assets/js/datatables-simple-demo.js"></script>
+      
+      <script>
+    function lihat() {
+      let x = document.getElementById("password");
+      let y = document.getElementById("cpassword");
+      if (x.type == "password" && y.type == "password") {
+        x.type = "text";
+        y.type = "text";
+      } else {
+        x.type = "password";
+        y.type = "password";
+      }
+    }
+
+    function check() {
+      if (document.getElementById('password').value == document.getElementById('cpassword').value) {
+        document.getElementById('cek_password').style.color = 'green';
+        document.getElementById('cek_password').innerHTML = 'Password sama';
+      } else {
+        document.getElementById('cek_password').style.color = 'red';
+        document.getElementById('cek_password').innerHTML = 'Password tidak sama';
+      }
+    }
+  </script>
 
 </body>
 
 </html>
 
-<?php
-if (isset($_POST['edit'])) {
-    $nis = $_POST['nis'];
-    $nama = $_POST['nama'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $alamat = $_POST['alamat'];
-    $kelas = $_POST['kelas'];
-
-    $query = mysqli_query($db, "UPDATE siswa SET nis='$nis', nama='$nama', jenis_kelamin='$jenis_kelamin', alamat='$alamat', id_kelas='$kelas' WHERE nis=$id");
-    
-    if($query){
-        echo "<script>alert('Data berhasil diupdate!'); window.location='data_siswa.php';</script>";
-    } else {
-        echo 'Data Gagal ditambahkan';
-    }
-}
