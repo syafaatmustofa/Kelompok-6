@@ -12,7 +12,7 @@ include "../config.php";
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>History Peminjaman</title>
+    <title>Peminjaman</title>
     <style>
         *,
         html,
