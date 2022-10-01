@@ -33,15 +33,25 @@ include "../layout/header.php";
                             <input type="text" class="form-control" name="id_peminjaman" id="id_peminjaman" value="<?= $data['id_peminjaman']?>"
                                 readonly>
                         </div>
-                        <div class="mb-3">
+                         <div class="mb-3">
                             <label class="form-label">ID Siswa</label>
-                            <input type="text" class="form-control" name="nis" id="nis" value="$data['nis'] ?>-<?= $data['namas'] ?>"
-                                required>
+                            <select class="form-select" aria-label="Default select example" name="nis">
+                            <?php
+                        $ambil = mysqli_query($db, "SELECT * FROM siswa");
+                        while ($data = mysqli_fetch_array($ambil)) {
+                        ?>
+                        <option value="<?= $data['nis'] ?>"> } ?></option>
+                        </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">ID Petugas</label>
-                            <input type="text" class="form-control" name="nip" id="nip" value=<?= $data['nip'] ?>-<?= $data['nama'] ?>"
-                                required>
+                        <label class="form-label">ID Petugas</label>
+                        <select class="form-select" aria-label="Default select example" name="nip">
+                        <?php
+                        $ambil = mysqli_query($db, "SELECT * FROM petugas");
+                        while ($data = mysqli_fetch_array($ambil)) {
+                        ?>
+                        <option value="<?= $data['nip'] ?>"> } ?></option>
+                        </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tanggal Peminjaman</label>
