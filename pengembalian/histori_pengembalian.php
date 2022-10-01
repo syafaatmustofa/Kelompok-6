@@ -12,7 +12,7 @@ include "../config.php";
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>History Peminjaman</title>
+    <title>History Pengembalian</title>
     <style>
         *,
         html,
@@ -150,7 +150,7 @@ include "../config.php";
     <div class="container tabel">
         <div class="card mt-5">
             <div class="card-header" style="background-color: #f7f7f7;">
-                <h1 class="mx-auto">PEMINJAMAN</h1>
+                <h1 class="mx-auto">PENGEMBALIAN</h1>
             </div>
             <div class="card-body">
                 <!-- search -->
@@ -182,9 +182,9 @@ include "../config.php";
                                 <td><?= $data['tanggal_pengembalian'] ?></td>
                                 <td><?= $data['denda'] ?></td>
                                 <td colspan="3">
-                                    <a href="editpengembalian.php?id_pgm=<?php echo $data['id_pengembalian']; ?> "> <button class="btn btn-warning" id="edit">Edit</button></a>
-                                    <a href="deletepengembalian.php?id_pgm=<?php echo $data['id_pengembalian']; ?> "><button class="btn btn-danger" id="hapus">Hapus</button></a>
-                                    <a href="pengembalian_detail.php?id_pgm=<?php echo $data['id_pengembalian'];?>"><button class="btn btn-secondary" id="detail">Details</button></a>
+                                    <a href="edit_pengembalian.php?id_pgm=<?php echo $data['id_pengembalian']; ?> "> <button class="btn btn-warning" id="edit">Edit</button></a>
+                                    <a href="delete_pengembalian.php?id_pgm=<?php echo $data['id_pengembalian']; ?> "><button class="btn btn-danger" id="hapus">Hapus</button></a>
+                                    <a href="detail_pengembalian.php?id_pgm=<?php echo $data['id_pengembalian'];?>"><button class="btn btn-secondary" id="detail">Details</button></a>
                                 </td>
                             </tr>
             </div>
@@ -194,8 +194,8 @@ include "../config.php";
         </tbody>
         </table>
         <div class="text-center">
-            <a href="buku.php" type="button" class="btn btn-danger"> Kembali </a>
-            <a href="tambahpengembalian.php">
+            <a href="home_pengembalian" type="button" class="btn btn-danger"> Kembali </a>
+            <a href="tambah_pengembalian.php">
                 <button class="btn btn-primary" id="tambah">
                     Tambah Data
                 </button>
