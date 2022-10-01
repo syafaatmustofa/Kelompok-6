@@ -28,12 +28,12 @@ include "../config.php";
             background-color: #FF884B;
         }
 
-        .accordion-item{
+        .accordion-item {
             background-color: #FF884B;
-            border: none; 
+            border: none;
         }
 
-        .accordion-body a{
+        .accordion-body a {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -41,7 +41,7 @@ include "../config.php";
             text-decoration: none;
         }
 
-        .accordion-button{
+        .accordion-button {
             background-color: #FF884B;
             border: none;
             width: 100px;
@@ -92,7 +92,7 @@ include "../config.php";
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <i class="icon bi bi-book pe-2 "></i>
+                            <i class="icon bi bi-book pe-2 "></i>
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -109,7 +109,7 @@ include "../config.php";
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <i class="icon bi bi-bag-plus pe-2"></i>
+                            <i class="icon bi bi-bag-plus pe-2"></i>
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -126,7 +126,7 @@ include "../config.php";
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <i class="icon bi bi-bag-check pe-2"></i>
+                            <i class="icon bi bi-bag-check pe-2"></i>
                         </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
