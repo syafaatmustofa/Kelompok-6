@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "../config.php";
 
 ?>
@@ -24,10 +23,10 @@ include "../config.php";
                 <label class="form-label">id_peminjaman</label>
                 <select class="form-select" aria-label="Default select example" name="id_peminjaman">
                     <?php
-                    $ambil = mysqli_query($db, "SELECT * FROM siswa");
+                    $ambil = mysqli_query($db, "SELECT * FROM peminjaman JOIN siswa on peminjaman.id_siswa = siswa.nis");
                     while ($data = mysqli_fetch_array($ambil)) {
                     ?>
-                        <option value="<?= $data['nis'] ?>"><?= $data['namas'];
+                        <option value="<?= $data['id_peminjaman'] ?>"><?= $data['namas'];
                                                         } ?></option>
                 </select>
             </div>
@@ -41,7 +40,7 @@ include "../config.php";
             </div>
         </form>
         <input type="submit" class="btn btn-primary" name="submit" value="submit" />
-        <a href="peminjaman.php" class="btn btn-danger"> Kembali</a>
+        <a href="home_pengembalian.php" class="btn btn-danger"> Kembali</a>
     </div>
 
 
