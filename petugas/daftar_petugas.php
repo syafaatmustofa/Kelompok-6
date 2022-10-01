@@ -3,8 +3,6 @@ include '../config.php';
 
 if (isset($_POST['submit'])) {
   $nama = $_POST['nama'];
-  $jenis_kelamin = $_POST['jenis_kelamin'];
-  $alamat = $_POST['alamat'];
   $password = $_POST['password'];
   $cpassword = $_POST['cpassword'];
 
@@ -16,14 +14,14 @@ if (isset($_POST['submit'])) {
   } else if ($password !== $cpassword) {
     echo "<script>alert('Password harus sama!')</script>";
   } else {
-    $query = mysqli_query($db, "INSERT INTO petugas(nama, jenis_kelamin, alamat, password) values ('$nama', '$jenis_kelamin', '$alamat', '$password')");
+    $query = mysqli_query($db, "INSERT INTO petugas(nama, password) values ('$nama', '$password')");
 
     if ($query) {
       echo "<script>alert('Petugas berhasil ditambahkan')</script>";
-      echo '<script>window.location.href="petugas.php"</script>';
+      echo '<script>window.location.href="login_petugas.php"</script>';
     } else {
       echo "<script>alert('Gagal menambahkan petugas')</script>";
-      echo '<script>window.location.href="tambahpetugas.php"</script>';
+      echo '<script>window.location.href="daftar_petugas.php"</script>';
     }
   }
 }
@@ -48,36 +46,26 @@ include "../layout/header.php";
     <div id="layoutSidenav_content" class="w-75 h-100" style="position: relative; left: 20%; margin-top: 100px;">
         <div class="container">
             <div class="card mt-5 mb-5">
-                <div class="card-header text-white" style="background-color: #827397;">Tambah Data Siswa</div>
+                <div class="card-header text-white" style="background-color: #827397;">Tambah Data Petugas</div>
                 <div class="card-body mb-3">
                     <form class="mt-1" action="" method="POST">
                         <div class="mb-3">
-                            <label class="form-label">NIS</label>
-                            <input type="text" class="form-control" name="nis" id="nis" placeholder="Masukkan NIS Siswa"
+                            <label class="form-label">NIP</label>
+                            <input type="text" class="form-control" name="nip" id="nis" placeholder="Masukkan NIP Petugas"
                                 required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Nama Siswa</label>
+                            <label class="form-label">Nama Petugas</label>
                             <input type="text" class="form-control" name="nama" id="nama"
-                                placeholder="Masukkan Nama Siswa" required>
+                                placeholder="Masukkan Nama Petugas" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Jenis Kelamin</label>
-                            <br>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Laki-laki"
-                                    id="jenis_kelamin1">
-                                <label class="form-check-label" for="jenis_kelamin1">
-                                    Laki-laki
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="jenis_kelamin" value="Perempuan"
-                                    id="jenis_kelamin2">
-                                <label class="form-check-label" for="jenis_kelamin2">
-                                    Perempuan
-                                </label>
-                            </div>
+                        <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
+                        <select class="form-select" required aria-label="Default select example" name="jenis_kelamin">
+                        <option disabled selected value="">-- Pilih Jenis Kelamin --</option>
+                        <option value="L">Laki-Laki</option>
+                        <option value="P">Perempuan</option>
+                         </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Alamat</label>
@@ -85,19 +73,23 @@ include "../layout/header.php";
                                 placeholder="Masukkan Alamat" required>
                         </div>
                         <div class="mb-3">
-                            <label for="pilihkelas">Kelas</label>
-                            <select class="form-control" name="kelas" id="kelas">
-                                <option value="">--Pilih Kelas--</option>
-                                <?php
-                                $sql = mysqli_query($db, "SELECT * FROM kelas");
-                                while ($data = mysqli_fetch_array($sql)) {
-                                ?>
-                                <option value="<?= $data['id_kelas'];?>"><?= $data['nama_kelas'];?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
+                        <label for="exampleInputEmail1" class="form-label">Alamat</label>
+                        <input type="text" name="alamat" required class="form-control">
                         </div>
+                        <div class="mb-3">
+                       <label for="exampleInputPassword1" class="form-label">Password</label>
+                         <input type="password" name="password" required id="password" onkeyup="check()" class="form-control">
+                     </div>
+                     <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Konfirmasi Password</label>
+                    <input type="password" name="cpassword" required id="cpassword" onkeyup="check()" class="form-control">
+                   <div>
+                    <span id="cek_password" class="form-label"></span>
+                     
+                     <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="lihat()">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Lihat password</label>
+                    </div>
                         <button type="submit" class="btn btn-primary" value="simpan" name="submit">Simpan</button>
                     </form>
                 </div>
@@ -118,23 +110,31 @@ include "../layout/header.php";
     </script>
     <script src="../assets/js/datatables-simple-demo.js"></script>
 
+    <script>
+    function lihat() {
+      let x = document.getElementById("password");
+      let y = document.getElementById("cpassword");
+      if (x.type == "password" && y.type == "password") {
+        x.type = "text";
+        y.type = "text";
+      } else {
+        x.type = "password";
+        y.type = "password";
+      }
+    }
+      
+      function check() {
+      if (document.getElementById('password').value == document.getElementById('cpassword').value) {
+        document.getElementById('cek_password').style.color = 'green';
+        document.getElementById('cek_password').innerHTML = 'Password sama';
+      } else {
+        document.getElementById('cek_password').style.color = 'red';
+        document.getElementById('cek_password').innerHTML = 'Password tidak sama';
+      }
+    }
+  </script>
+  
 </body>
 
 </html>
 
-<?php
-if (isset($_POST['submit'])) {
-    $nis = $_POST['nis'];
-    $nama = $_POST['nama'];
-    $jenis_kelamin = $_POST['jenis_kelamin'];
-    $alamat = $_POST['alamat'];
-    $kelas = $_POST['kelas'];
-
-    $query = mysqli_query($db, "INSERT INTO siswa (nis, nama, jenis_kelamin, alamat, id_kelas)  VALUES ('$nis', '$nama', '$jenis_kelamin', '$alamat', '$kelas')");
-    
-    if($query){
-        echo "<script>alert('Data berhasil ditambahkan!'); window.location='data_siswa.php';</script>";
-    } else {
-        echo 'Data Gagal ditambahkan';
-    }
-}
