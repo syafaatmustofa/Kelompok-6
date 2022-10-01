@@ -1,9 +1,9 @@
 <?php
-include("config.php");
+include("../config.php");
 session_start();
 
 if (isset($_SESSION['namad'])) {
-    header('location: index.php');
+    header('location: home_admin.php');
     exit;
 }
 
@@ -58,7 +58,7 @@ if (isset($_POST["login"])) {
                 <button type="submit" class="btn btn-primary mb-5 w-25 " name="login">login</button>
             </div>
             <div class="text-center">
-                <p>punya akun ? belum <a href="daftar.php" class="daftar">klik disini</a> </p>
+                <p>punya akun ? belum <a href="daftar_admin.php" class="daftar">klik disini</a> </p>
             </div>
         </form>
     </div>
