@@ -13,7 +13,7 @@ session_start();
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>History Peminjaman</title>
+    <title>Detail Pengembalian</title>
     <style>
         *,
         html,
@@ -150,7 +150,7 @@ session_start();
             <!-- a -->
             <div class="container tabel">
                 <div class="card mt-5">
-                    <div class="card-header" style="background-color: #f7f7f7;"><h1 class="mx-auto">HISTORY PEMINJAMAN</h1></div>
+                    <div class="card-header" style="background-color: #f7f7f7;"><h1 class="mx-auto">DETAIL PENGEMBALIAN</h1></div>
                     <div class="card-body">
                         <!-- search -->
                         <div class="container">
@@ -164,8 +164,7 @@ session_start();
 			<table class="table">
 				<tbody>
 				<?php
-					$id_peminjaman = $_GET['id_peminjaman'];
-					$ambil = mysqli_query($db, "SELECT * FROM peminjaman WHERE id_peminjaman = $id_peminjaman");
+					$ambil = mysqli_query($db, "SELECT * FROM detail_pengembalian JOIN pengembalian on  detail_pengembalian.id_pengembalian = pengembalian.id_pengembalian");
 					while($data = mysqli_fetch_assoc($ambil)) {
 				?>
                     <tr>
@@ -173,51 +172,31 @@ session_start();
 						<td><img src="../assets/cover/<?php echo $data['cover'] ?>" class= "img-thumbnail" alt="" style="width: 100px;"></td>
 					</tr>
 					<tr>
-						<td>Kode Buku</td>
-						<td><input type="text" class="form-control" name="kode_buku" value="<?php echo $data['id_buku'] ?>" readonly></input></td>
+						<td>ID Pengembembalian</td>
+						<td><input type="text" class="form-control" name="id_pengembalian" value="<?php echo $data['id_pengembalian'] ?>" readonly></input></td>
 					</tr>
 					<tr>
-					<td>Judul</td>
-					<td><input type="text" class="form-control" name="kode_buku" value="<?php echo $data['judul'] ?>" readonly</input></td>
+					<td>Jumlah Ada</td>
+					<td><input type="text" class="form-control" name="ada" value="<?php echo $data['ada'] ?>" readonly</input></td>
 					</td>
 					<tr>
-						<td>NIS</td>
-						<td><input type="text" class="form-control" name="nis" placeholder="Masukkan NIS" required></input></td>
+						<td>Jumlah Hilang</td>
+						<td><input type="text" class="form-control" name="hilang"value="<?php echo $data['hilang'] ?>" readonly</input></td>
 					</tr>
-					<tr>
-						<td>Petugas</td>
-						<td><input type="text" class="form-control" name="nip" value="<?= $_SESSION['nip'] ?>"></input></td>
-					</tr>
-					</tr>
-						<td>Total</td>
-						<td><input type="number" class="form-control" name="total" ></input></td>
-					</tr>
+					
 					<?php
 						}
 					?>
-					<tr>
-						<td>Tanggal Peminjaman</td>
-						<td><input type="date" class="form-control" name="pinjam"></input></td>
-					</tr>
-					<tr>
-					<td>Tanggal Pengembalian</td>
-						<td><input type="date" class="form-control" name="kembali"></input></td>
-					</tr>
 				</tbody>
 			</table>
 			<div class="text-end">
-			<a href="home.php" type="button" class="btn btn-danger"> Kembali </a>
+			<a href="home_pengembalian.php" type="button" class="btn btn-danger"> Kembali </a>
 			<button type="submit" name="submit" class="btn btn-success">Submit</button>
 		</div>
 		</form>
 	</div>
                         <div class="text-center">
-                            <a href="buku.php" type="button" class="btn btn-danger"> Kembali </a>
-                            <a href="peminjaman.php">
-                                <button class="btn btn-primary" id="tambah">
-                                    Tambah Data
-                                </button>
-                            </a>
+                            <a href="home_pengembalian.php" type="button" class="btn btn-danger"> Kembali </a>
                     </div>
                 </div>
             </div>
