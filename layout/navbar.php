@@ -1,4 +1,4 @@
-<nav class="sb-topnav navbar navbar-expand navbar-dark" style="background-color:#874C62;">
+<nav class="sb-topnav navbar navbar-expand navbar-dark" style="background-color:#363062;">
     <!-- Navbar Brand-->
     <a class="navbar-brand ps-3" href="index.html">MyLibrary</a>
     <!-- Sidebar Toggle-->

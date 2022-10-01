@@ -1,6 +1,6 @@
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark text-white" id="sidenavAccordion"
-        style="background-color:#874C62;">
+        style="background-color:#4D4C7D;">
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Core</div>
@@ -19,22 +19,23 @@
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link text-white" href="layout-static.html">Data Buku</a>
-                        <a class="nav-link text-white" href="layout-sidenav-light.html">Data Siswa</a>
+                        <a class="nav-link text-white" href="data_siswa.php">Data Siswa</a>
                     </nav>
                 </div>
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
-                    aria-expanded="false" aria-controls="collapsePages">
-                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse"
+                    data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                    <div class="sb-nav-link-icon"><i class="fas fa-book-open text-white"></i></div>
                     Pages
-                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down text-white"></i></div>
                 </a>
                 <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                        <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse"
                             data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
                             Authentication
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            <div class="sb-sidenav-collapse-arrow text-white"><i
+                                    class="fas fa-angle-down text-white"></i></div>
                         </a>
                         <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordionPages">
@@ -44,11 +45,11 @@
                                 <a class="nav-link" href="password.html">Forgot Password</a>
                             </nav>
                         </div>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+                        <a class="nav-link collapsed text-white" href="#" data-bs-toggle="collapse"
                             data-bs-target="#pagesCollapseError" aria-expanded="false"
                             aria-controls="pagesCollapseError">
                             Error
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down text-white"></i></div>
                         </a>
                         <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordionPages">
@@ -61,18 +62,18 @@
                     </nav>
                 </div>
                 <div class="sb-sidenav-menu-heading">Addons</div>
-                <a class="nav-link" href="charts.html">
-                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                <a class="nav-link text-white" href="charts.html">
+                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area text-white"></i></div>
                     Charts
                 </a>
-                <a class="nav-link" href="tables.html">
-                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                <a class="nav-link text-white" href="tables.html">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table text-white"></i></div>
                     Tables
                 </a>
             </div>
         </div>
-        <div class="sb-sidenav-footer">
-            <div class="small">Welcome to</div>
+        <div class="sb-sidenav-footer" style="background-color:#363062;">
+            <div class=" small">Welcome to</div>
             MyLibrary
         </div>
     </nav>

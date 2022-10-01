@@ -1,6 +1,5 @@
 <?php
 include "../config.php";
-$id = $_GET['nis'];
 ?>
 
 <?php
@@ -24,21 +23,17 @@ include "../layout/header.php";
                 <div class="card-header text-white" style="background-color: #827397;">Tambah Data Siswa</div>
                 <div class="card-body mb-3">
                     <form class="mt-1" action="" method="POST">
-                        <?php
-                        $cetak = mysqli_query($db, "SELECT * FROM siswa, kelas WHERE siswa.id_kelas = kelas.id_kelas AND nis=$id");
-                        $data = mysqli_fetch_assoc($cetak);
-                        ?>
                         <div class="mb-3">
                             <label class="form-label">NIS</label>
-                            <input type="text" class="form-control" name="nis" id="nis" value="<?= $data['nis']?>"
+                            <input type="text" class="form-control" name="nis" id="nis" placeholder="Masukkan NIS Siswa"
                                 required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Nama Siswa</label>
-                            <input type="text" class="form-control" name="nama" id="nama" value="<?= $data['nama']?>"
-                                required>
+                            <input type="text" class="form-control" name="nama" id="nama"
+                                placeholder="Masukkan Nama Siswa" required>
                         </div>
-                        <div class=" mb-3">
+                        <div class="mb-3">
                             <label class="form-label">Jenis Kelamin</label>
                             <br>
                             <div class="form-check">
@@ -59,25 +54,23 @@ include "../layout/header.php";
                         <div class="mb-3">
                             <label class="form-label">Alamat</label>
                             <input type="text" class="form-control" name="alamat" id="alamat"
-                                value="<?= $data['alamat']?>" required>
+                                placeholder="Masukkan Alamat" required>
                         </div>
-                        <div class=" mb-3">
+                        <div class="mb-3">
                             <label for="pilihkelas">Kelas</label>
                             <select class="form-control" name="kelas" id="kelas">
-                                <!-- <option value="">--Pilih Kelas--</option> -->
+                                <option value="">--Pilih Kelas--</option>
                                 <?php
-                                echo "<option value=$data[id_kelas]>$data[nama_kelas]</option>";
                                 $sql = mysqli_query($db, "SELECT * FROM kelas");
-                                    while ($data = mysqli_fetch_array($sql)) {
+                                while ($data = mysqli_fetch_array($sql)) {
                                 ?>
-                                <option value="<?php echo $data['id_kelas'];?>"><?php echo $data['nama_kelas'];?>
-                                </option>
+                                <option value="<?= $data['id_kelas'];?>"><?= $data['nama_kelas'];?></option>
                                 <?php
                                 }
                                 ?>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-primary" value="edit" name="edit">Simpan</button>
+                        <button type="submit" class="btn btn-primary" value="simpan" name="submit">Simpan</button>
                     </form>
                 </div>
             </div>
@@ -102,17 +95,17 @@ include "../layout/header.php";
 </html>
 
 <?php
-if (isset($_POST['edit'])) {
+if (isset($_POST['submit'])) {
     $nis = $_POST['nis'];
     $nama = $_POST['nama'];
     $jenis_kelamin = $_POST['jenis_kelamin'];
     $alamat = $_POST['alamat'];
     $kelas = $_POST['kelas'];
 
-    $query = mysqli_query($db, "UPDATE siswa SET nis='$nis', nama='$nama', jenis_kelamin='$jenis_kelamin', alamat='$alamat', id_kelas='$kelas' WHERE nis=$id");
+    $query = mysqli_query($db, "INSERT INTO siswa (nis, nama, jenis_kelamin, alamat, id_kelas)  VALUES ('$nis', '$nama', '$jenis_kelamin', '$alamat', '$kelas')");
     
     if($query){
-        echo "<script>alert('Data berhasil diupdate!'); window.location='data_siswa.php';</script>";
+        echo "<script>alert('Data berhasil ditambahkan!'); window.location='data_siswa.php';</script>";
     } else {
         echo 'Data Gagal ditambahkan';
     }
