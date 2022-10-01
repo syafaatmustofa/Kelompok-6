@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     $stok = $_POST['stok'];
     $cover = $_FILES['cover']['name'];
     $tmp_name = $_FILES['cover']['tmp_name'];
-    move_uploaded_file($tmp_name, "./../assets/bootstrap/img/" . $cover);
+    move_uploaded_file($tmp_name, "./../assets/img/" . $cover);
 
     $query = mysqli_query($db, "INSERT INTO buku(penulis, judul, tahun, penerbit, kota, sinopsis, stok, cover) values ('$penulis', '$judul', '$tahun', '$penerbit', '$kota', '$sinopsis', '$stok', '$cover')");
 
