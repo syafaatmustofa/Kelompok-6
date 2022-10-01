@@ -1,17 +1,17 @@
 <?php
-include 'config.php';
+include '../config.php';
 
-$id = $_GET['id'];
+$id = $_GET['nip'];
 $delete = mysqli_query($db, "DELETE FROM petugas WHERE nip='$id'");
 
 if ($delete) { ?>
     <script>
         alert("Berhasil menghapus!");
-        document.location = "petugas.php";
+        document.location = "home_petugas.php";
     </script>
 <?php 
 } else {
-    echo "Aduh, gagal menghapus";
+    echo "gagal menghapus";
 }
 
 ?>
