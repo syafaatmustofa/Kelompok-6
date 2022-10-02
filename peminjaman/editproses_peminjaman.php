@@ -1,17 +1,18 @@
 <?php
-include 'config.php';
+include '../config.php';
 
-$id_mahasiswa = $_POST['id_mahasiswa'];
-$nama = $_POST['nama'];
-$tgl_lahir = $_POST['tgl_lahir'];
-$nim = $_POST['nim'];
-$jurusan = $_POST['jurusan'];
-$foto = $_FILES['foto']['name'];
-$tmp_name = $_FILES['foto']['tmp_name'];
-move_uploaded_file($tmp_name, "img/" . $foto);
+    $id_peminjaman = $_POST['id_peminjaman'];
+    $id_siswa = $_POST['nis'];
+    $id_petugas = $_POST['nip'];
+    $tanggal_peminjaman = $_POST['tanggal_peminjaman'];
+    $tanggal_pengembalian = $_POST['tanggal_pengembalian'];
 
-$query = mysqli_query($db, "update mahasiswa set nama='$nama', tgl_lahir='$tgl_lahir', nim='$nim', id_jurusan='$jurusan', foto='$foto'  where id_mahasiswa='$id_mahasiswa'");
+ $query = mysqli_query($db, "UPDATE peminjaman SET id_peminjaman='$id_peminjaman', id_siswa='$nis', id_petugas='$nip', tanggal_peminjaman='$tanggal_peminjaman', tanggal_pengembalian='$tanggal_pengembalian' WHERE id_peminjaman=$id");
+    
+    if($query){
+        echo "<script>alert('Data berhasil diupdate!'); window.location='home_peminjaman.php';</script>";
+    } else {
+        echo 'Data Gagal ditambahkan';
+    }
 
-if ($query) {
-    header("location:index2.php");
-}
+?>

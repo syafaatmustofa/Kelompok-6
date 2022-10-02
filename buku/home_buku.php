@@ -80,7 +80,7 @@ include "../config.php";
                         <a href="index.php" class="nav-link active">HOME</a>
                     </li>
                 </ul>
-                <a href="loginpetugas.php" class="nav-link active"><button class="btn btn-danger">Logout</button></a>
+                <a href="login_petugas.php" class="nav-link active"><button class="btn btn-danger">Logout</button></a>
             </div>
         </div>
     </nav>
@@ -175,7 +175,7 @@ include "../config.php";
                                 <td> <?php echo $data['judul']; ?> </td>
                                 <td> <?php echo $data['kota']; ?> </td>
                                 <td> <?php echo $data['penerbit']; ?> </td>
-                                <td><img src="../assets/img/<?= $data['cover'] ?>" class="rounded" width="75px" alt=""></td>
+                                <td><img src="./../assets/img/<?= $data['cover'] ?>" class="rounded" width="75px" alt=""></td>
                                 <td> <?php echo $data['sinopsis']; ?> </td>
                                 <td> <?php echo $data['stok']; ?> </td>
                             </tr>

@@ -8,6 +8,6 @@
 </head>
 <body>
     <h1>halaman admin</h1>
-    
+     <a href="logout_admmin.php" class="nav-link active"><button class="btn btn-danger">Logout</button></a>
 </body>
 </html>
