@@ -34,6 +34,8 @@ include "../layout/header.php";
                                 placeholder="Masukkan Nama Kelas" required>
                         </div>
                         <button type="submit" class="btn btn-primary" value="submit" name="submit">Simpan</button>
+                        <button type="cancel" onclick="javascript:window.location='kelas.php';" class="btn btn-danger"
+                            value="cancel" name="cancel">Cancel</button>
                     </form>
                 </div>
             </div>

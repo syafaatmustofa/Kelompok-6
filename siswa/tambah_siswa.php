@@ -71,6 +71,8 @@ include "../layout/header.php";
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary" value="simpan" name="submit">Simpan</button>
+                        <button type="cancel" onclick="javascript:window.location='data_siswa.php';"
+                            class="btn btn-danger" value="cancel" name="cancel">Cancel</button>
                     </form>
                 </div>
             </div>
