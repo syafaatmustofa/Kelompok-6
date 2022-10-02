@@ -47,7 +47,7 @@
                         <div class="collapse" id="pagesCollapseAuthPetugas" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="../petugas">Data Petugas</a>
+                                <a class="nav-link" href="../petugas/data_petugas.php">Data Petugas</a>
                                 <a class="nav-link" href="../petugas/tambah_petugas.php">Tambah Data Petugas</a>
                             </nav>
                         </div>

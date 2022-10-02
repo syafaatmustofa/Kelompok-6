@@ -46,7 +46,7 @@ include "../layout/header.php";
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="form-wrapper">
                         <div class="judul text-center my-4">
-                            <h3>Edit Petugas</h3>
+                            <h3>Edit Data Petugas</h3>
                         </div>
                         <!-- start form -->
                         <form action="" method="post" enctype="multipart/form-data">
@@ -89,19 +89,6 @@ include "../layout/header.php";
                                     <input type="text" class="form-control" name="alamat"
                                         value="<?= $data['alamat'] ?>">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                                    <input type="password" name="password" required id="password" onkeyup="check()"
-                                        value="<?= $data['password'] ?>" class="form-control">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Konfirmasi Password</label>
-                                    <input type="password" name="cpassword" required id="cpassword" onkeyup="check()"
-                                        class="form-control">
-                                    <div>
-                                        <span id="cek_password" class="form-label"></span>
-                                    </div>
-                                </div>
                                 <div class="form-check form-switch mb-3">
                                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
                                         onclick="lihat()">
@@ -109,7 +96,7 @@ include "../layout/header.php";
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn bg-gradient-primary" name="submit">Edit</button>
+                                <button type="submit" class="btn btn-primary" name="submit">Edit</button>
                             </div>
                             <?php
               }
