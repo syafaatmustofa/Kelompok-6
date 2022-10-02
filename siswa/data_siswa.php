@@ -10,11 +10,11 @@ include "../layout/header.php";
 
 <body class="sb-nav-fixed">
     <?php 
-    include "../layout/navbar.php";
+    include "../layout/navbar_admin.php";
     ?>
     <div id="layoutSidenav">
         <?php
-            include "../layout/sidebar.php";
+            include "../layout/sidebar_admin.php";
             ?>
     </div>
     <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
@@ -25,7 +25,6 @@ include "../layout/header.php";
                     <table class="table table-hover table-bordered bordered-dark mt-4">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                             <a href="tambah_siswa.php" class="btn btn-outline-primary">Tambah Data</a>
-                            <a href="logout_siswa.php" class="btn btn-outline-primary">Logout</a>
                         </div>
                         <thead class=" text-center">
                             <tr>
