@@ -21,8 +21,8 @@
                         <div class="collapse" id="pagesCollapseAuthSiswa" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="login.html">Data Siswa</a>
-                                <a class="nav-link" href="register.html">Tambah Data Siswa</a>
+                                <a class="nav-link" href="../siswa/data_siswa.php">Data Siswa</a>
+                                <a class="nav-link" href="../siswa/tambah_siswa.php">Tambah Data Siswa</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -34,8 +34,8 @@
                         <div class="collapse" id="pagesCollapseKelas" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="401.html">Data Kelas</a>
-                                <a class="nav-link" href="404.html">Tambah Data Kelas</a>
+                                <a class="nav-link" href="../admin/kelas.php">Data Kelas</a>
+                                <a class="nav-link" href="../admin/nambah_kelas.php">Tambah Data Kelas</a>
                             </nav>
                         </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -47,8 +47,8 @@
                         <div class="collapse" id="pagesCollapseAuthPetugas" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="login.html">Data Petugas</a>
-                                <a class="nav-link" href="register.html">Tambah Data Petugas</a>
+                                <a class="nav-link" href="../petugas">Data Petugas</a>
+                                <a class="nav-link" href="../petugas/tambah_petugas.php">Tambah Data Petugas</a>
                             </nav>
                         </div>
                     </nav>

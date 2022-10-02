@@ -10,11 +10,11 @@ include "../layout/header.php";
 
 <body class="sb-nav-fixed">
     <?php 
-    include "../layout/navbar.php";
+    include "../layout/navbar_admin.php";
     ?>
     <div id="layoutSidenav">
         <?php
-            include "../layout/sidebar.php";
+            include "../layout/sidebar_admin.php";
             ?>
     </div>
     <div id="layoutSidenav_content" class="w-75 h-100" style="position: relative; left: 20%; margin-top: 100px;">
@@ -80,7 +80,8 @@ include "../layout/header.php";
     </div>
     </div>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="../assets/js/scripts.js"></script>
@@ -91,7 +92,6 @@ include "../layout/header.php";
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous">
     </script>
     <script src="../assets/js/datatables-simple-demo.js"></script>
-
 </body>
 
 </html>
