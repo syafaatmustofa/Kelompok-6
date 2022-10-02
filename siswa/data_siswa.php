@@ -5,7 +5,7 @@ include "../config.php";
 <?php
 include "../layout/header.php";
 ?>
-<title>Data Buku</title>
+<title>Data Siswa</title>
 </head>
 
 <body class="sb-nav-fixed">
@@ -25,6 +25,7 @@ include "../layout/header.php";
                     <table class="table table-hover table-bordered bordered-dark mt-4">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                             <a href="tambah_siswa.php" class="btn btn-outline-primary">Tambah Data</a>
+                            <a href="logout_siswa.php" class="btn btn-outline-primary">Logout</a>
                         </div>
                         <thead class=" text-center">
                             <tr>

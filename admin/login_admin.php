@@ -15,10 +15,10 @@ if (isset($_POST["login"])) {
 
     if ($data) {
         $_SESSION['namad'] = $data['namad'];
-        header('location:index.php');
+        header('location:../index.php');
     } else { ?>
 <script>
-alert("ora isok")
+alert("Username tidak terdaftar!")
 </script>
 <?php
     }
@@ -32,7 +32,7 @@ alert("ora isok")
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LOGIN</title>
+    <title>Login Page</title>
     <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="../assets/dist/vendor/bootstrap-4.5.3/css/bootstrap.min.css" type="text/css">
@@ -45,20 +45,20 @@ alert("ora isok")
 </head>
 
 <body>
-    <div class="form-wrapper" method="POST">
+    <div class="form-wrapper">
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <div class="my-5 text-center">
-                        <h3 class="font-weight-bold mb-3">Login</h3>
-                        <p class="text-muted">Login to MyLibrary to continue</p>
+                    <div class="my-1 text-center">
+                        <h3 class="font-weight-bold mb-3">Halaman Login Admin</h3>
+                        <p class="text-muted">Login MyLibrary untuk melanjutkan.</p>
                     </div>
-                    <form>
+                    <form method="POST">
                         <div class="form-group">
                             <label for="username">Username</label>
                             <div class="form-icon-wrapper">
                                 <input type="text" name="namad" required class="form-control" id="namad"
-                                    placeholder="Masukkan Nama Anda">
+                                    placeholder="Masukkan Username Anda">
                                 <i class="form-icon-left mdi mdi-email"></i>
                             </div>
                         </div>
@@ -68,28 +68,23 @@ alert("ora isok")
                                 <input type="password" name="password" required class="form-control" id="password"
                                     placeholder="Masukkan Password Anda">
                                 <i class="form-icon-left mdi mdi-lock"></i>
-                                <a href="#" class="form-icon-right password-show-hide" title="Hide or show password">
+                                <a class="form-icon-right password-show-hide" title="Hide or show password">
                                     <i class="mdi mdi-eye"></i>
                                 </a>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-block" name="login">Login</button>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-block mb-2" name="login">Login</button>
                         </div>
-                        <p class="text-center">
-                            Belum punya akun?
-                            <a href="daftar_admin.php">Klik Disini</a>.
-                        </p>
                         <div class="text-divider">atau</div>
                         <div class="account-links justify-content-center">
-                            <a href="login_siswa.php" class="btn text-white mb-3 text-center"
+                            <a href="../siswa/login_siswa.php" class="btn text-white mb-3 text-center"
                                 style="width: 100%;background-color:#827397">Login
                                 sebagai Siswa</a>
                             <br>
-                            <a href="login_petugas.php" class="btn text-white text-center"
+                            <a href="../petugas/login_petugas.php" class="btn text-white text-center"
                                 style="width: 100%;background-color:#827397">Login
                                 sebagai Petugas</a>
-
                         </div>
                     </form>
                 </div>
@@ -116,7 +111,7 @@ alert("ora isok")
                 <label class="form-check-label">Show</label>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary mb-5 w-25 " name="login">login</button>
+                <button type="submit" class="btn btn-primary mb-5 w-25" name="login">login</button>
             </div>
             <div class="text-center">
                 <p>punya akun ? belum <a href="daftar_admin.php" class="daftar">klik disini</a> </p>

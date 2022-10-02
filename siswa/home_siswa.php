@@ -1,3 +1,3 @@
 <?php
-include "./../buku/home_buku.php";
+include "data_siswa.php";
 ?>

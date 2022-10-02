@@ -81,7 +81,8 @@ include "../config.php";
                         <a href="index.php" class="nav-link active">HOME</a>
                     </li>
                 </ul>
-                <a href="login_petugas.php" class="nav-link active"><button class="btn btn-danger">Logout</button></a>
+                <a href="../petugas/login_petugas.php" class="nav-link active"><button
+                        class="btn btn-danger">Logout</button></a>
             </div>
         </div>
     </nav>
