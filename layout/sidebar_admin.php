@@ -62,8 +62,8 @@
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="layout-static.html">Data Buku</a>
-                        <a class="nav-link" href="layout-sidenav-light.html">Tambah Buku</a>
+                        <a class="nav-link" href="../buku/home_buku.php">Data Buku</a>
+                        <a class="nav-link" href="../buku/nambah_buku.php">Tambah Buku</a>
                     </nav>
                 </div>
                 <div class="sb-sidenav-menu-heading">TRANSAKSI</div>
