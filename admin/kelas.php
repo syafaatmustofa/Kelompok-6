@@ -45,7 +45,7 @@ include "../layout/header.php";
                                     <a href="edit_siswa.php?id_kelas=<?= $data['id_kelas']?>"
                                         class="btn btn-warning">Edit</a>
                                     |
-                                    <a href="delete_siswa.php?id_kelas=<?= $data['id_kelas']?>"
+                                    <a href="delete_kelas.php?id_kelas=<?= $data['id_kelas']?>"
                                         class="btn btn-danger">Hapus</a>
                                 </td>
                             </tr>
