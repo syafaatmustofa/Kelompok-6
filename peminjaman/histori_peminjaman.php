@@ -81,7 +81,7 @@ include "../config.php";
                         <a class="nav-link active">HOME</a>
                     </li>
                 </ul>
-                <a class="nav-link active"><button class="btn btn-danger">Logout</button></a>
+                <a href="./../petugas/logout.php" class="nav-link active"><button class="btn btn-danger">Logout</button></a>
             </div>
         </div>
     </nav>
@@ -188,12 +188,7 @@ include "../config.php";
                             </tbody>
                         </table>
                         <div class="text-center">
-                            <a href="buku.php" type="button" class="btn btn-danger"> Kembali </a>
-                            <a href="peminjaman.php">
-                                <button class="btn btn-primary" id="tambah">
-                                    Tambah Data
-                                </button>
-                            </a>
+                            <a href="home_peminjaman.php" type="button" class="btn btn-danger"> Kembali </a>
                     </div>
                 </div>
             </div>

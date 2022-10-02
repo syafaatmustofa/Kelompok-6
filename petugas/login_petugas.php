@@ -3,7 +3,7 @@ include("../config.php");
 session_start();
 
 if (isset($_SESSION['nip'])) {
-    header('location: buku.php');
+    header('location: home_petugas.php');
     exit;
 }
 
@@ -14,7 +14,7 @@ if (isset($_POST["login"])) {
 
     if ($data) {
         $_SESSION['nip'] = $data['nip'];
-        header('location:buku.php');
+        header('location:home_petugas.php');
     } else { ?>
     <script>
         alert("ora isok")
@@ -53,8 +53,8 @@ if (isset($_POST["login"])) {
                 <button type="submit" class="btn btn-primary mb-5 w-25 " name="login">login</button>
             </div>
             <div class="text-center">
-                <p>masuk sebagai admin <a href="login.php" class="admin">klik disini</a> </p>
-                <p>masuk sebagai siswa <a href="loginsiswa.php" class="siswa">klik disini</a> </p>
+                <p>masuk sebagai admin <a href="./../admin/login_admin.php" class="admin">klik disini</a> </p>
+                <p>masuk sebagai siswa <a href="./../siswa/login_siswa.php" class="siswa">klik disini</a> </p>
         
             </div>
         </form>

@@ -81,7 +81,7 @@ include "../config.php";
                         <a class="nav-link active">HOME</a>
                     </li>
                 </ul>
-                <a class="nav-link active"><button class="btn btn-danger">Logout</button></a>
+                <a href="./../siswa/login_siswa.php" class="nav-link active"><button class="btn btn-danger">Logout</button></a>
             </div>
         </div>
     </nav>
@@ -178,7 +178,7 @@ include "../config.php";
                                 <td> <?php echo $data['id_buku']; ?> </td>
                                 <td><img src="../assets/img/<?= $data['cover'] ?>" class="rounded" width="75px" alt=""></td>
                                 <td> <?php echo $data['judul']; ?> </td>
-                                <td><a href="peminjaman.php" type="button" class="btn btn-primary">Pinjam</a></td>
+                                <td><a href="./../peminjaman/tambah_peminjaman.php" type="button" class="btn btn-primary">Pinjam</a></td>
                             </tr>
                         <?php
                         }

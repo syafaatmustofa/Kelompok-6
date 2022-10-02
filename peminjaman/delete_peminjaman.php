@@ -1,17 +1,13 @@
 <?php
-include 'config.php';
+include '../config.php';
 
-$id = $_GET['id_mhs'];
-$qdata = mysqli_query($db, "select foto from mahasiswa where id_mahasiswa = '$id'");
-$data = mysqli_fetch_array($qdata);
-$delete = mysqli_query($db, "delete from mahasiswa where id_mahasiswa='$id'");
-
-unlink("img/" . $data['foto']);
+$id = $_GET['id_pmj'];
+$delete = mysqli_query($db, "DELETE FROM peminjaman WHERE id_peminjaman='$id'");
 
 if ($delete) {
 ?> <script>
         alert("menghapus");
-        document.location = "index2.php";
+        document.location = "home_peminjaman.php";
     </script>
 <?php
 } else {

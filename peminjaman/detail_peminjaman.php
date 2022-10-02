@@ -1,5 +1,6 @@
 <?php
 include "../config.php";
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -153,40 +154,63 @@ include "../config.php";
                     <div class="card-body">
                         <!-- search -->
                         <div class="container">
-                            <form class="d-flex" role="search">
+                            <form action= class="d-flex" role="search">
                                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success" type="submit">Search</button>
                             </form>
                         </div>
                         <!-- search -->
-                        <table class="table table-hover table-bordered bordered-dark mt-4">
-                            <thead>
-                                <tr>
-                                    <th scope="col">ID Peminjaman</th>
-                                    <th scope="col">Siswa</th>
-                                    <th scope="col">Petugas</th>
-                                    <th scope="col">Tanggal Peminjaman</th>
-                                    <th scope="col">Tanggal Pengembalian</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $ambil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip");
-                                while ($data = mysqli_fetch_assoc($ambil)) {
-                                ?>
-                                    <tr>
-                                        <td><?= $data['id_peminjaman'] ?></td>
-                                        <td><?= $data['nis'] ?>-<?= $data['namas'] ?></td>
-                                        <td><?= $data['nip'] ?>-<?= $data['nama'] ?></td>
-                                        <td><?= $data['tanggal_peminjaman'] ?></td>
-                                        <td><?= $data['tanggal_pengembalian'] ?></td>
-                                    </tr>
-                                </div>
-                                <?php
-                                }
-                                ?>
-                            </tbody>
-                        </table>
+                        <form action="" method="post" enctype="multipart/form-data">
+			<table class="table">
+				<tbody>
+				<?php
+					$id_peminjaman = $_GET['id_peminjaman'];
+					$ambil = mysqli_query($db, "SELECT * FROM peminjaman WHERE id_peminjaman = $id_peminjaman");
+					while($data = mysqli_fetch_assoc($ambil)) {
+				?>
+                    <tr>
+						<td>Cover</td>
+						<td><img src="../assets/cover/<?php echo $data['cover'] ?>" class= "img-thumbnail" alt="" style="width: 100px;"></td>
+					</tr>
+					<tr>
+						<td>Kode Buku</td>
+						<td><input type="text" class="form-control" name="kode_buku" value="<?php echo $data['id_buku'] ?>" readonly></input></td>
+					</tr>
+					<tr>
+					<td>Judul</td>
+					<td><input type="text" class="form-control" name="kode_buku" value="<?php echo $data['judul'] ?>" readonly</input></td>
+					</td>
+					<tr>
+						<td>NIS</td>
+						<td><input type="text" class="form-control" name="nis" placeholder="Masukkan NIS" required></input></td>
+					</tr>
+					<tr>
+						<td>Petugas</td>
+						<td><input type="text" class="form-control" name="nip" value="<?= $_SESSION['nip'] ?>"></input></td>
+					</tr>
+					</tr>
+						<td>Total</td>
+						<td><input type="number" class="form-control" name="total" ></input></td>
+					</tr>
+					<?php
+						}
+					?>
+					<tr>
+						<td>Tanggal Peminjaman</td>
+						<td><input type="date" class="form-control" name="pinjam"></input></td>
+					</tr>
+					<tr>
+					<td>Tanggal Pengembalian</td>
+						<td><input type="date" class="form-control" name="kembali"></input></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="text-end">
+			<a href="home.php" type="button" class="btn btn-danger"> Kembali </a>
+			<button type="submit" name="submit" class="btn btn-success">Submit</button>
+		</div>
+		</form>
+	</div>
                         <div class="text-center">
                             <a href="buku.php" type="button" class="btn btn-danger"> Kembali </a>
                             <a href="peminjaman.php">

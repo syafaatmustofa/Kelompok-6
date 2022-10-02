@@ -12,7 +12,7 @@ include "../config.php";
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>History Peminjaman</title>
+    <title>Peminjaman</title>
     <style>
         *,
         html,
@@ -81,7 +81,7 @@ include "../config.php";
                         <a class="nav-link active">HOME</a>
                     </li>
                 </ul>
-                <a class="nav-link active"><button class="btn btn-danger">Logout</button></a>
+                <a href="./../petugas/logout_petugas.php"  class="nav-link active"><button class="btn btn-danger">Logout</button></a>
             </div>
         </div>
     </nav>
