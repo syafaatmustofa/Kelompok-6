@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
 <?php
 include "../layout/header.php";
 ?>
-<title>Data Buku</title>
+<title>Tambah Data Buku</title>
 </head>
 
 <body class="sb-nav-fixed">
@@ -38,7 +38,7 @@ include "../layout/header.php";
         <?php
             include "../layout/sidebar.php";
             ?>
-        
+
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-12">
@@ -46,13 +46,13 @@ include "../layout/header.php";
                         <div class="card-body px-0 pt-0 pb-2">
                             <div class="form-wrapper">
                                 <div class="judul text-center my-4">
-                                    <h3>Tambah Buku</h3>
+                                    <h3>Tambah Data Buku</h3>
                                 </div>
                                 <!-- start form -->
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <div class="row mb-3">
                                         <div class="col-6">
-                                            <div class="input-1 w-50 ms-auto">                                                
+                                            <div class="input-1 w-50 ms-auto">
                                                 <div class="mb-3">
                                                     <label class="form-label">Penulis</label>
                                                     <input type="text" class="form-control" name="penulis">
@@ -63,7 +63,8 @@ include "../layout/header.php";
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Tahun</label>
-                                                    <input type="number" class="form-control" min="1900" max="2099" name="tahun">
+                                                    <input type="number" class="form-control" min="1900" max="2099"
+                                                        name="tahun">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label">Penerbit</label>
@@ -103,4 +104,3 @@ include "../layout/header.php";
                     </div>
                 </div>
             </div>
-           

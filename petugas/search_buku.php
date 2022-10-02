@@ -11,7 +11,7 @@ include "../config.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>Home Data</title>
+    <title>Data</title>
     <style>
     * {
         padding: 0;
@@ -160,7 +160,7 @@ include "../config.php";
     <!-- Tabel Data Siswa : Nur -->
     <div class="container tabel">
         <div class="card mt-5" style="width: 60rem">
-            <div class=" card-header" style="background-color: #f7f7f7;">Peminjaman</div>
+            <div class=" card-header" style="background-color: #f7f7f7;">Data Buku</div>
             <div class="card-body">
                 <!-- search -->
                 <div class="container-fluid">

@@ -5,7 +5,7 @@ include "../config.php";
 <?php
 include "../layout/header.php";
 ?>
-<title>Data Buku</title>
+<title>Data Siswa</title>
 </head>
 
 <body class="sb-nav-fixed">

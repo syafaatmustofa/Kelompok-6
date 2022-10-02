@@ -21,7 +21,7 @@ include "../layout/header.php";
     <div id="layoutSidenav_content" class="w-75 h-100" style="position: relative; left: 20%; margin-top: 100px;">
         <div class="container">
             <div class="card mt-5 mb-5">
-                <div class="card-header text-white" style="background-color: #827397;">Tambah Data Siswa</div>
+                <div class="card-header text-white" style="background-color: #827397;">Edit Data Pengembalian</div>
                 <div class="card-body mb-3">
                     <form class="mt-1" action="editproses_pengembalian" method="POST">
                         <?php
@@ -30,30 +30,30 @@ include "../layout/header.php";
                         ?>
                         <div class="mb-3">
                             <label class="form-label">ID Pengembalian</label>
-                            <input type="text" class="form-control" name="id_pengembalian" id="id_pengembalian" value="<?= $data['id_pengembalian']?>"
-                                readonly>
+                            <input type="text" class="form-control" name="id_pengembalian" id="id_pengembalian"
+                                value="<?= $data['id_pengembalian']?>" readonly>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">ID Peminjaman</label>
                             <select class="form-select" aria-label="Default select example" name="id_peminjaman">
-                            <?php
+                                <?php
                         $ambil = mysqli_query($db, "SELECT * FROM pengembalian");
                         while ($data = mysqli_fetch_array($ambil)) {
                         ?>
-                        <option value="<?= $data['id_peminjaman'] ?>"> } ?></option>
-                        </select>
+                                <option value="<?= $data['id_peminjaman'] ?>"> } ?></option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tanggal Pengembalian</label>
-                            <input type="date" class="form-control" name="tanggal_pengembalian" id="tanggal_pengembalian" value=<<?= $data['tanggal_pengembalian'] ?>"
-                                required>
+                            <input type="date" class="form-control" name="tanggal_pengembalian"
+                                id="tanggal_pengembalian" value=<<?= $data['tanggal_pengembalian'] ?>" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Denda</label>
                             <input type="date" class="form-control" name="denda" id="denda"
                                 value="<?= $data['denda'] ?>" required>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary" value="edit" name="edit">Simpan</button>
                     </form>
                 </div>

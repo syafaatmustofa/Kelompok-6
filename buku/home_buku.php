@@ -11,57 +11,57 @@ include "../config.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <title>Home Data</title>
+    <title>Data Buku</title>
 
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
+    * {
+        padding: 0;
+        margin: 0;
+    }
 
-        .sidebar {
+    .sidebar {
 
-            position: absolute;
-            padding-top: 50px;
-            width: 150px;
-            height: 100vh;
-            background-color: #FF884B;
-        }
+        position: absolute;
+        padding-top: 50px;
+        width: 150px;
+        height: 100vh;
+        background-color: #FF884B;
+    }
 
-        .accordion-item {
-            background-color: #FF884B;
-            border: none;
-        }
+    .accordion-item {
+        background-color: #FF884B;
+        border: none;
+    }
 
-        .accordion-body a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: black;
-            text-decoration: none;
-        }
+    .accordion-body a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        text-decoration: none;
+    }
 
-        .accordion-button {
-            background-color: #FF884B;
-            border: none;
-            width: 100px;
-        }
+    .accordion-button {
+        background-color: #FF884B;
+        border: none;
+        width: 100px;
+    }
 
-        .tabel {
-            margin-left: 200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    .tabel {
+        margin-left: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-        .card {
-            width: fit-content;
-        }
+    .card {
+        width: fit-content;
+    }
 
-        .icon {
-            width: 200px;
-            font-size: 2em;
-        }
+    .icon {
+        width: 200px;
+        font-size: 2em;
+    }
     </style>
 
 </head>
@@ -71,7 +71,8 @@ include "../config.php";
     <nav class="navbar navbar-expand-lg" style="background-color: #FF884B;">
         <div class="container">
             <a class="navbar-brand" href="#">My Library</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -91,16 +92,19 @@ include "../config.php";
             <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             <i class="icon bi bi-book pe-2 "></i>
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="buku.php">Melihat Buku</a>
                         </div>
                     </div>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="crudbuku.php">Menambah Buku</a>
                         </div>
@@ -108,16 +112,19 @@ include "../config.php";
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             <i class="icon bi bi-bag-plus pe-2"></i>
                         </button>
                     </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="peminjaman.php">Menambahan Peminjaman</a>
                         </div>
                     </div>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="history.php">History Peminjaman</a>
                         </div>
@@ -125,16 +132,19 @@ include "../config.php";
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                             <i class="icon bi bi-bag-check pe-2"></i>
                         </button>
                     </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="pengembalian.php">Menambahan Pengembalian</a>
                         </div>
                     </div>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <a href="history.php">History Pengembalian</a>
                         </div>
@@ -168,17 +178,18 @@ include "../config.php";
                         $cetak = mysqli_query($db, "SELECT * FROM buku");
                         while ($data = mysqli_fetch_assoc($cetak)) {
                         ?>
-                            <tr>
-                                <td> <?php echo $data['id_buku']; ?> </td>
-                                <td> <?php echo $data['penulis']; ?> </td>
-                                <td> <?php echo $data['tahun']; ?> </td>
-                                <td> <?php echo $data['judul']; ?> </td>
-                                <td> <?php echo $data['kota']; ?> </td>
-                                <td> <?php echo $data['penerbit']; ?> </td>
-                                <td><img src="./../assets/img/<?= $data['cover'] ?>" class="rounded" width="75px" alt=""></td>
-                                <td> <?php echo $data['sinopsis']; ?> </td>
-                                <td> <?php echo $data['stok']; ?> </td>
-                            </tr>
+                        <tr>
+                            <td> <?php echo $data['id_buku']; ?> </td>
+                            <td> <?php echo $data['penulis']; ?> </td>
+                            <td> <?php echo $data['tahun']; ?> </td>
+                            <td> <?php echo $data['judul']; ?> </td>
+                            <td> <?php echo $data['kota']; ?> </td>
+                            <td> <?php echo $data['penerbit']; ?> </td>
+                            <td><img src="./../assets/img/<?= $data['cover'] ?>" class="rounded" width="75px" alt="">
+                            </td>
+                            <td> <?php echo $data['sinopsis']; ?> </td>
+                            <td> <?php echo $data['stok']; ?> </td>
+                        </tr>
                         <?php
                         }
                         ?>

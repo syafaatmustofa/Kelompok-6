@@ -6,7 +6,7 @@ $id = $_GET['id_peminjaman'];
 <?php
 include "../layout/header.php";
 ?>
-<title>Data Buku</title>
+<title>Peminjaman</title>
 </head>
 
 <body class="sb-nav-fixed">
@@ -21,7 +21,7 @@ include "../layout/header.php";
     <div id="layoutSidenav_content" class="w-75 h-100" style="position: relative; left: 20%; margin-top: 100px;">
         <div class="container">
             <div class="card mt-5 mb-5">
-                <div class="card-header text-white" style="background-color: #827397;">Tambah Data Siswa</div>
+                <div class="card-header text-white" style="background-color: #827397;">Edit Data Peminjaman</div>
                 <div class="card-body mb-3">
                     <form class="mt-1" action="editproses_peminjaman.php" method="POST">
                         <?php
@@ -30,28 +30,28 @@ include "../layout/header.php";
                         ?>
                         <div class="mb-3">
                             <label class="form-label">ID Peminjaman</label>
-                            <input type="text" class="form-control" name="id_peminjaman" id="id_peminjaman" value="<?= $data['id_peminjaman']?>"
-                                readonly>
+                            <input type="text" class="form-control" name="id_peminjaman" id="id_peminjaman"
+                                value="<?= $data['id_peminjaman']?>" readonly>
                         </div>
-                         <div class="mb-3">
+                        <div class="mb-3">
                             <label class="form-label">ID Siswa</label>
                             <select class="form-select" aria-label="Default select example" name="nis">
-                            <?php
+                                <?php
                         $ambil = mysqli_query($db, "SELECT * FROM siswa");
                         while ($data = mysqli_fetch_array($ambil)) {
                         ?>
-                        <option value="<?= $data['nis'] ?>"> } ?></option>
-                        </select>
+                                <option value="<?= $data['nis'] ?>"> } ?></option>
+                            </select>
                         </div>
                         <div class="mb-3">
-                        <label class="form-label">ID Petugas</label>
-                        <select class="form-select" aria-label="Default select example" name="nip">
-                        <?php
+                            <label class="form-label">ID Petugas</label>
+                            <select class="form-select" aria-label="Default select example" name="nip">
+                                <?php
                         $ambil = mysqli_query($db, "SELECT * FROM petugas");
                         while ($data = mysqli_fetch_array($ambil)) {
                         ?>
-                        <option value="<?= $data['nip'] ?>"> } ?></option>
-                        </select>
+                                <option value="<?= $data['nip'] ?>"> } ?></option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tanggal Peminjaman</label>
@@ -60,10 +60,10 @@ include "../layout/header.php";
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Tanggal Pengembalian</label>
-                            <input type="date" class="form-control" name="tanggal_pengembalian" id="tanggal_pengembalian"
-                                value="<?= $data['tanggal_pengembalian'] ?>" required>
+                            <input type="date" class="form-control" name="tanggal_pengembalian"
+                                id="tanggal_pengembalian" value="<?= $data['tanggal_pengembalian'] ?>" required>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary" value="edit" name="edit">Simpan</button>
                     </form>
                 </div>

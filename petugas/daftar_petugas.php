@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
 <?php
 include "../layout/header.php";
 ?>
-<title>Data Buku</title>
+<title>Petugas</title>
 </head>
 
 <body class="sb-nav-fixed">
@@ -51,8 +51,8 @@ include "../layout/header.php";
                     <form class="mt-1" action="" method="POST">
                         <div class="mb-3">
                             <label class="form-label">NIP</label>
-                            <input type="text" class="form-control" name="nip" id="nis" placeholder="Masukkan NIP Petugas"
-                                required>
+                            <input type="text" class="form-control" name="nip" id="nis"
+                                placeholder="Masukkan NIP Petugas" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Nama Petugas</label>
@@ -60,12 +60,13 @@ include "../layout/header.php";
                                 placeholder="Masukkan Nama Petugas" required>
                         </div>
                         <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
-                        <select class="form-select" required aria-label="Default select example" name="jenis_kelamin">
-                        <option disabled selected value="">-- Pilih Jenis Kelamin --</option>
-                        <option value="L">Laki-Laki</option>
-                        <option value="P">Perempuan</option>
-                         </select>
+                            <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
+                            <select class="form-select" required aria-label="Default select example"
+                                name="jenis_kelamin">
+                                <option disabled selected value="">-- Pilih Jenis Kelamin --</option>
+                                <option value="L">Laki-Laki</option>
+                                <option value="P">Perempuan</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Alamat</label>
@@ -73,24 +74,28 @@ include "../layout/header.php";
                                 placeholder="Masukkan Alamat" required>
                         </div>
                         <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Alamat</label>
-                        <input type="text" name="alamat" required class="form-control">
+                            <label for="exampleInputEmail1" class="form-label">Alamat</label>
+                            <input type="text" name="alamat" required class="form-control">
                         </div>
                         <div class="mb-3">
-                       <label for="exampleInputPassword1" class="form-label">Password</label>
-                         <input type="password" name="password" required id="password" onkeyup="check()" class="form-control">
-                     </div>
-                     <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Konfirmasi Password</label>
-                    <input type="password" name="cpassword" required id="cpassword" onkeyup="check()" class="form-control">
-                   <div>
-                    <span id="cek_password" class="form-label"></span>
-                     
-                     <div class="form-check form-switch mb-3">
-                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onclick="lihat()">
-                    <label class="form-check-label" for="flexSwitchCheckDefault">Lihat password</label>
-                    </div>
-                        <button type="submit" class="btn btn-primary" value="simpan" name="submit">Simpan</button>
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" name="password" required id="password" onkeyup="check()"
+                                class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Konfirmasi Password</label>
+                            <input type="password" name="cpassword" required id="cpassword" onkeyup="check()"
+                                class="form-control">
+                            <div>
+                                <span id="cek_password" class="form-label"></span>
+
+                                <div class="form-check form-switch mb-3">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
+                                        onclick="lihat()">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Lihat password</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary" value="simpan"
+                                    name="submit">Simpan</button>
                     </form>
                 </div>
             </div>
@@ -112,29 +117,28 @@ include "../layout/header.php";
 
     <script>
     function lihat() {
-      let x = document.getElementById("password");
-      let y = document.getElementById("cpassword");
-      if (x.type == "password" && y.type == "password") {
-        x.type = "text";
-        y.type = "text";
-      } else {
-        x.type = "password";
-        y.type = "password";
-      }
+        let x = document.getElementById("password");
+        let y = document.getElementById("cpassword");
+        if (x.type == "password" && y.type == "password") {
+            x.type = "text";
+            y.type = "text";
+        } else {
+            x.type = "password";
+            y.type = "password";
+        }
     }
-      
-      function check() {
-      if (document.getElementById('password').value == document.getElementById('cpassword').value) {
-        document.getElementById('cek_password').style.color = 'green';
-        document.getElementById('cek_password').innerHTML = 'Password sama';
-      } else {
-        document.getElementById('cek_password').style.color = 'red';
-        document.getElementById('cek_password').innerHTML = 'Password tidak sama';
-      }
+
+    function check() {
+        if (document.getElementById('password').value == document.getElementById('cpassword').value) {
+            document.getElementById('cek_password').style.color = 'green';
+            document.getElementById('cek_password').innerHTML = 'Password sama';
+        } else {
+            document.getElementById('cek_password').style.color = 'red';
+            document.getElementById('cek_password').innerHTML = 'Password tidak sama';
+        }
     }
-  </script>
-  
+    </script>
+
 </body>
 
 </html>
-
