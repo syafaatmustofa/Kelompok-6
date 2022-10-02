@@ -42,9 +42,6 @@ include "../layout/header.php";
                                 <td> <?php echo $data['id_kelas']; ?> </td>
                                 <td> <?php echo $data['nama_kelas']; ?> </td>
                                 <td colspan="2">
-                                    <a href="edit_siswa.php?id_kelas=<?= $data['id_kelas']?>"
-                                        class="btn btn-warning">Edit</a>
-                                    |
                                     <a href="delete_kelas.php?id_kelas=<?= $data['id_kelas']?>"
                                         class="btn btn-danger">Hapus</a>
                                 </td>
