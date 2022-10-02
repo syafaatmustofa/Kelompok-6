@@ -106,7 +106,7 @@ alert("NIS tidak terdaftar!")
             </div>
         </form>
     </div> -->
-    <script>
+    <!-- <script>
     function lihat() {
         let x = document.getElementById("nis");
         if (x.type == "password") {
@@ -115,7 +115,7 @@ alert("NIS tidak terdaftar!")
             x.type = "password";
         }
     }
-    </script>
+    </script> -->
     <script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Jquery -->
     <script src="../assets/dist/vendor/jquery.min.js"></script>

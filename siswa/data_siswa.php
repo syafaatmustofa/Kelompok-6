@@ -65,7 +65,7 @@ include "../layout/header.php";
     </div>
     </div>
     </div>
-    <script src=" assets/bootstrap/js/bootstrap.bundle.min.js">
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
