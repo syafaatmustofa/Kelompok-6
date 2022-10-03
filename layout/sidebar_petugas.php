@@ -92,7 +92,6 @@
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                         <a class="nav-link" href="../pengembalian/home_pengembalian.php">Home Pengembalian</a>
                         <a class="nav-link" href="../pengembalian/tambah_pengembalian.php">Tambah Pengembalian</a>
-                        <a class="nav-link" href="../pengembalian/histori_pengembalian.php">Histori Pengembalian</a>
                     </nav>
                 </div>
             </div>

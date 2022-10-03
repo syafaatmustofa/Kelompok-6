@@ -2,15 +2,15 @@
 include "../config.php";
 session_start();
 
-$id_peminjaman = $_GET['id_peminjaman'];
-$tampil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas join buku join detail_peminjaman on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip and detail_peminjaman.id_buku = buku.id_buku  WHERE peminjaman.id_peminjaman = $id_peminjaman ");
+$id_pengembalian = $_GET['id_pengembalian'];
+$tampil = mysqli_query($db, "SELECT * FROM pengembalian join siswa join petugas join buku join detail_pengembalian on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip and detail_pengembalian.id_pengembalian = pengembalian.id_pengembalian  WHERE pengembalian.id_pengembalian = $id_pengembalian ");
 $data2 = mysqli_fetch_assoc($tampil);
 ?>
 
 <?php
 include "../layout/header.php";
 ?>
-<title>Data Peminjaman</title>
+<title>Detail pengembalian</title>
 </head>
 
 <body class="sb-nav-fixed">
@@ -34,8 +34,8 @@ include "../layout/header.php";
                         <table class="table">
                             <tbody>
                                 <?php
-                                $id_peminjaman = $_GET['id_peminjaman'];
-                                $tampil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas join buku join detail_peminjaman on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip and detail_peminjaman.id_buku = buku.id_buku WHERE peminjaman.id_peminjaman = $id_peminjaman ");
+                                $id_pengembalian = $_GET['id_pengembalian'];
+                                $tampil = mysqli_query($db, "SELECT * FROM pengembalian join siswa join petugas join buku join detail_pengembalian on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip and detail_pengembalian.id_buku = buku.id_buku WHERE peminjaman.id_peminjaman = $id_peminjaman ");
                                 $data2 = mysqli_fetch_assoc($tampil);
                                 ?>
                                 <tr>

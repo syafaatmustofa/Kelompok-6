@@ -37,7 +37,6 @@ include "../layout/header.php";
                                 <th scope="col">ID Peminjaman</th>
                                 <th scope="col">Tanggal Pengembalian</th>
                                 <th scope="col">Denda</th>
-                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,14 +49,6 @@ include "../layout/header.php";
                                 <td><?= $data['id_peminjaman'] ?></td>
                                 <td><?= $data['tanggal_pengembalian'] ?></td>
                                 <td><?= $data['denda'] ?></td>
-                                <td colspan="3">
-                                    <a href="edit_pengembalian.php?id_pgm=<?php echo $data['id_pengembalian']; ?> ">
-                                        <button class="btn btn-warning" id="edit">Edit</button></a>
-                                    <a href="delete_pengembalian.php?id_pgm=<?php echo $data['id_pengembalian']; ?> "><button
-                                            class="btn btn-danger" id="hapus">Hapus</button></a>
-                                    <a href="detail_pengembalian.php?id_pgm=<?php echo $data['id_pengembalian'];?>"><button
-                                            class="btn btn-secondary" id="detail">Details</button></a>
-                                </td>
                             </tr>
                 </div>
                 <?php
@@ -66,7 +57,6 @@ include "../layout/header.php";
                 </tbody>
                 </table>
                 <div class="text-center">
-                    <a href="home_pengembalian.php" type="button" class="btn btn-danger"> Kembali </a>
                     <a href="tambah_pengembalian.php">
                         <button class="btn btn-primary" id="tambah">
                             Tambah Data
