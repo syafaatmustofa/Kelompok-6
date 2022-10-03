@@ -1,3 +1,3 @@
 <?php
-include "./../peminjaman/home_peminjaman.php";
+include "../peminjaman/home_peminjaman.php";
 ?>

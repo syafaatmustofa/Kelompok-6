@@ -77,8 +77,7 @@
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                         <a class="nav-link" href="../peminjaman/home_peminjaman.php">Home Peminjaman</a>
-                        <a class="nav-link" href="../peminjaman/detail_peminjaman.php">Detail Peminjaman</a>
-                        <a class="nav-link" href="../peminjaman/tambah_peminjaman.php">Tambah Peminjaman</a>
+                        <a class="nav-link" href="../buku/search_buku.php">Tambah Peminjaman</a>
                         <a class="nav-link" href="../peminjaman/histori_peminjaman.php">Histori Peminjaman</a>
                     </nav>
                 </div>
@@ -92,7 +91,6 @@
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                         <a class="nav-link" href="../pengembalian/home_pengembalian.php">Home Pengembalian</a>
-                        <a class="nav-link" href="../pengembalian/detail_pengembalian.php">Detail Pengembalian</a>
                         <a class="nav-link" href="../pengembalian/tambah_pengembalian.php">Tambah Pengembalian</a>
                         <a class="nav-link" href="../pengembalian/histori_pengembalian.php">Histori Pengembalian</a>
                     </nav>

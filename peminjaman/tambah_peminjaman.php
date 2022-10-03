@@ -1,78 +1,97 @@
 <?php
 // session_start();
 include "../config.php";
+session_start();
 
-<<<<<<< HEAD
 if (!$_SESSION['nip']) {
-    header('location:login_petugas.php');
+    header('location:../petugas/login_petugas.php');
 }
-=======
-// if (!$_SESSION['nip']) {
-//     header('location:../petugas/login_petugas.php');
-// }
->>>>>>> origin/trial
 ?>
 
 <?php
 include "../layout/header.php";
+?>
 
-// if (!isset($_SESSION['nip']) || !isset($_SESSION['namad']) ) {
-//     header('location:./../petugas/login_petugas.php');
-// }
+<?php
+
+$id_buku = $_GET['id_buku'];
+$result = mysqli_query($db, "SELECT * FROM buku WHERE id_buku='$id_buku'");
+while ($data2 = mysqli_fetch_array($result)) {
+    $judul = $data2['judul'];
+    $penulis = $data2['penulis'];
+}
+$result2 = mysqli_query($db, "SELECT * FROM siswa ");
 
 
+if (isset($_POST['submit'])) {
+
+    if ($_POST['nis'] == null ) {
+        echo "<script>alert('Tolong isi semua field')</script>";
+    } else {
+        $nis = $_POST['nis'];
+        $nip = $_SESSION['nip'];
+        $tanggal_peminjaman = $_POST['tanggal_peminjaman'];
+        $tanggal_pengembalian = $_POST['tanggal_pengembalian'];
+
+        $sendd = mysqli_query($db, "INSERT INTO `peminjaman` (`id_peminjaman`, `id_siswa`, `id_petugas`, `tanggal_peminjaman`, `tanggal_pengembalian`) VALUES (NULL, '$nis', '$nip', '$tanggal_peminjaman', '$tanggal_pengembalian')");
+        $dataid = mysqli_query($db, "SELECT id_peminjaman FROM peminjaman ORDER BY id_peminjaman DESC limit 1");
+        $id_peminjaman = '';
+        if ($sendd) {
+            # code...
+            while ($lastid = mysqli_fetch_array($dataid)) {
+                $id_peminjaman = $lastid['id_peminjaman'];
+            }
+            echo $id_peminjaman;
+            if ($sendd) {
+                $sendd2 = mysqli_query($db, "INSERT INTO `detail_peminjaman` (`id_detail_peminjaman`, `id_buku`, `id_peminjaman`) VALUES (NULL, '$id_buku', '$id_peminjaman');");
+                header('location:home_peminjaman.php');
+            }
+        }
+    }
+}
 
 ?>
+
+
 <title>Data Peminjaman</title>
 </head>
 
 <body class="sb-nav-fixed">
-<<<<<<< HEAD
     <?php
-    include "../layout/navbar_admin.php";
-    ?>
-    <div id="layoutSidenav">
-        <?php
-        include "../layout/sidebar_admin.php";
-        ?>
-=======
-    <?php 
     include "../layout/navbar_petugas.php";
     ?>
     <div id="layoutSidenav">
         <?php
-            include "../layout/sidebar_petugas.php";
-            ?>
->>>>>>> origin/trial
+        include "../layout/sidebar_petugas.php";
+        ?>
     </div>
     <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
         <!-- TABEL -->
         <div class="container mt-2 mb-5">
-            <h1 class="text-center mb-5">Peminjaman Baru</h1>
+            <h1 class="text-center mb-5">Tambah Peminjaman</h1>
             <form method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label">Siswa</label>
                     <select class="form-select" aria-label="Default select example" name="nis">
                         <?php
-<<<<<<< HEAD
-                        $ambil = mysqli_query($db, "SELECT * FROM siswa");
-                        while ($data = mysqli_fetch_array($ambil)) {
+                        while ($data = mysqli_fetch_array($result2)) {
                         ?>
                             <option value="<?= $data['nis'] ?>"><?= $data['namas'];
                                                             } ?></option>
-=======
-                    $ambil = mysqli_query($db, "SELECT * FROM siswa");
-                    while ($data = mysqli_fetch_array($ambil)) {
-                    ?>
-                        <option value="<?= $data['nis'] ?>"><?= $data['namas'];
-                    } ?>
-                        </option>
->>>>>>> origin/trial
                     </select>
                 </div>
                 <div class="mb-3">
+                    <?php $id_buku = $_GET['id_buku'];  ?>
+                    <label class="form-label">Buku</label>
+                    <input type="text" class="form-control" name="id_buku" value="<?= $id_buku; ?>" disabled>
+                </div>
+                <div class="mb-3">
+                <label class="form-label">Judul</label>
+                    <input readonly type="text" name="judul" value="<?php echo $judul . "--" . $penulis; ?>" class="form-control" placeholder="Judul" aria-label="Email" aria-describedby="email-addon">
+                </div>
+                <div class="mb-3">
                     <label class="form-label">Petugas</label>
-                    <input type="text" class="form-control" name="nip" value="<?= $_SESSION['nip']; ?>" readonly>
+                    <input type="text" class="form-control" name="nip" value="<?= $_SESSION['nip']; ?>" disabled>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Tanggal Peminjaman</label>
@@ -105,23 +124,3 @@ include "../layout/header.php";
 </body>
 
 </html>
-
-<?php
-if (isset($_POST['submit'])) {
-    $id_siswa = $_POST['nis'];
-    $id_petugas = $_POST['nip'];
-    $tanggal_peminjaman = $_POST['tanggal_peminjaman'];
-    $tanggal_pengembalian = $_POST['tanggal_pengembalian'];
-
-
-    $query = mysqli_query($db, "INSERT INTO peminjaman (id_siswa, id_petugas, tanggal_peminjaman, tanggal_pengembalian) VALUES('$id_siswa', '$id_petugas', '$tanggal_peminjaman', '$tanggal_pengembalian')");
-
-    if($query){
-        echo "<script>alert('Data berhasil ditambahkan!'); window.location='home_peminjaman.php';</script>";
-    } else {
-        echo 'Data Gagal ditambahkan';
-    }
-}
-
-
-?>

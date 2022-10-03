@@ -1,7 +1,15 @@
 <?php 
 include '../config.php';
 $id_kelas = $_GET['id_kelas'];
-mysqli_query($db, "DELETE FROM kelas WHERE id_kelas=$id_kelas")or die(mysql_error());
+$delete = mysqli_query($db, "DELETE FROM kelas WHERE id_kelas=$id_kelas");
 
-header("location:kelas.php?pesan=delete");
+if ($delete) { ?>
+    <script>
+        alert("Berhasil menghapus!");
+        document.location = "../admin/kelas.php";
+    </script>
+<?php
+} else {
+    echo "gagal menghapus";
+}
 ?>

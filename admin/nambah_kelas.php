@@ -65,10 +65,10 @@ if (isset($_POST['submit'])) {
     $id_kelas = $_POST['id_kelas'];
     $nama_kelas = $_POST['nama_kelas'];
 
-    $query = mysqli_query($db, "INSERT INTO kelas  (id_kelas, nama_kelas)  VALUES ('$id_kelas','$nama_kelas')");
+    $query = mysqli_query($db, "INSERT INTO kelas (id_kelas, nama_kelas)  VALUES ('$id_kelas','$nama_kelas')");
     
     if($query){
-        echo "<script>alert('Data Kelas berhasil ditambahkan!'); window.location='kelas.php';</script>";
+        echo "<script>alert('Data Kelas berhasil ditambahkan!'); window.location='../admin/kelas.php';</script>";
     } else {
         echo 'Data Gagal ditambahkan';
     }

@@ -3,7 +3,7 @@ include "../config.php";
 session_start();
 
 $id_peminjaman = $_GET['id_peminjaman'];
-$tampil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas join buku on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip and peminjaman.id_buku = buku.id_buku WHERE peminjaman.id_peminjaman = $id_peminjaman ");
+$tampil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas join buku join detail_peminjaman on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip and detail_peminjaman.id_buku = buku.id_buku  WHERE peminjaman.id_peminjaman = $id_peminjaman ");
 $data2 = mysqli_fetch_assoc($tampil);
 ?>
 
@@ -15,25 +15,19 @@ include "../layout/header.php";
 
 <body class="sb-nav-fixed">
     <?php
-    include "../layout/navbar_admin.php";
-    ?>
-    <div id="layoutSidenav">
-        <?php
-        include "../layout/sidebar_admin.php";
-        ?>
-    <?php 
     include "../layout/navbar_petugas.php";
     ?>
     <div id="layoutSidenav">
         <?php
-            include "../layout/sidebar_petugas.php";
-            ?>
+        include "../layout/sidebar_petugas.php";
+        ?>
     </div>
     <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
+        <!-- a -->
         <div class="container tabel">
             <div class="card mt-5">
                 <div class="card-header" style="background-color: #f7f7f7;">
-                    <h1 class="mx-auto">HISTORY PEMINJAMAN</h1>
+                    <h4 class="mx-auto">History Peminjaman</h4>
                 </div>
                 <div class="card-body">
                     <form action="" method="post" enctype="multipart/form-data">
@@ -41,7 +35,7 @@ include "../layout/header.php";
                             <tbody>
                                 <?php
                                 $id_peminjaman = $_GET['id_peminjaman'];
-                                $tampil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas join buku on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip and peminjaman.id_buku = buku.id_buku WHERE peminjaman.id_peminjaman = $id_peminjaman ");
+                                $tampil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas join buku join detail_peminjaman on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip and detail_peminjaman.id_buku = buku.id_buku WHERE peminjaman.id_peminjaman = $id_peminjaman ");
                                 $data2 = mysqli_fetch_assoc($tampil);
                                 ?>
                                 <tr>
@@ -77,18 +71,9 @@ include "../layout/header.php";
                             </tbody>
                         </table>
                         <div class="text-end">
-                            <a href="home.php" type="button" class="btn btn-danger"> Kembali </a>
-                            <button type="submit" name="submit" class="btn btn-success">Submit</button>
+                            <a href="home_peminjaman.php" type="button" class="btn btn-danger"> Kembali </a>
                         </div>
                     </form>
-                </div>
-                <div class="text-center">
-                    <a href="buku.php" type="button" class="btn btn-danger"> Kembali </a>
-                    <a href="peminjaman.php">
-                        <button class="btn btn-primary" id="tambah">
-                            Tambah Data
-                        </button>
-                    </a>
                 </div>
             </div>
         </div>
