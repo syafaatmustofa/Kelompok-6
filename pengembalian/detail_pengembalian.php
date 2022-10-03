@@ -27,7 +27,7 @@ include "../layout/header.php";
                 <div class="card-body">
                     <!-- search -->
                     <div class="container">
-                        <form action=class="d-flex" role="search">
+                        <form action="" class="d-flex" role="search">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
@@ -53,12 +53,12 @@ include "../layout/header.php";
                                 <tr>
                                     <td>Jumlah Ada</td>
                                     <td><input type="text" class="form-control" name="ada"
-                                            value="<?php echo $data['ada'] ?>" readonly</input></td>
+                                            value="<?php echo $data['ada'] ?>" readonly></input></td>
                                     </td>
                                 <tr>
                                     <td>Jumlah Hilang</td>
                                     <td><input type="text" class="form-control" name="hilang"
-                                            value="<?php echo $data['hilang'] ?>" readonly</input></td>
+                                            value="<?php echo $data['hilang'] ?>" readonly></input></td>
                                 </tr>
 
                                 <?php

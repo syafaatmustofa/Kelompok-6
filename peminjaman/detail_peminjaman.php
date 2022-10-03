@@ -37,10 +37,10 @@ include "../layout/header.php";
                         <table class="table">
                             <tbody>
                                 <?php
-					$id_peminjaman = $_GET['id_peminjaman'];
-					$ambil = mysqli_query($db, "SELECT * FROM peminjaman WHERE id_peminjaman = $id_peminjaman");
-					while($data = mysqli_fetch_assoc($ambil)) {
-				?>
+                                $id_peminjaman = $_GET['id_peminjaman'];
+                                $ambil = mysqli_query($db, "SELECT * FROM peminjaman WHERE id_peminjaman = $id_peminjaman");
+                                while($data = mysqli_fetch_assoc($ambil)) {
+                                ?>
                                 <tr>
                                     <td>Cover</td>
                                     <td><img src="../assets/cover/<?php echo $data['cover'] ?>" class="img-thumbnail"
@@ -54,7 +54,7 @@ include "../layout/header.php";
                                 <tr>
                                     <td>Judul</td>
                                     <td><input type="text" class="form-control" name="kode_buku"
-                                            value="<?php echo $data['judul'] ?>" readonly</input></td>
+                                            value="<?php echo $data['judul'] ?>" readonly></input></td>
                                     </td>
                                 <tr>
                                     <td>NIS</td>
@@ -71,8 +71,8 @@ include "../layout/header.php";
                                 <td><input type="number" class="form-control" name="total"></input></td>
                                 </tr>
                                 <?php
-						}
-					?>
+                                    }
+                                ?>
                                 <tr>
                                     <td>Tanggal Peminjaman</td>
                                     <td><input type="date" class="form-control" name="pinjam"></input></td>
@@ -101,7 +101,7 @@ include "../layout/header.php";
         </div>
     </div>
     <!-- a -->
-    <script src="../assets/bootstrap/js/bootstrap.bundle.min.js">
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
