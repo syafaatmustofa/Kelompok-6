@@ -1,10 +1,10 @@
 <?php
-session_start();
+// session_start();
 include "../config.php";
 
-if (!$_SESSION['nip']) {
-    header('location:loginpetugas.php');
-}
+// if (!$_SESSION['nip']) {
+//     header('location:../petugas/login_petugas.php');
+// }
 ?>
 
 <?php
@@ -35,7 +35,8 @@ include "../layout/header.php";
                     while ($data = mysqli_fetch_array($ambil)) {
                     ?>
                         <option value="<?= $data['nis'] ?>"><?= $data['namas'];
-                                                        } ?></option>
+                    } ?>
+                        </option>
                     </select>
                 </div>
                 <div class="mb-3">

@@ -20,9 +20,7 @@ include "../layout/header.php";
     <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
         <div class="container tabel">
             <div class="card mt-5">
-                <div class="card-header" style="background-color: #f7f7f7;">
-                    <h1 class="mx-auto">PEMINJAMAN</h1>
-                </div>
+                <div class="card-header text-white" style="background-color: #827397;">Peminjaman</div>
                 <div class="card-body">
                     <!-- search -->
                     <div class="container">
@@ -65,16 +63,12 @@ include "../layout/header.php";
                             </tr>
                 </div>
                 <?php
-                        }
-        ?>
+                }
+                ?>
                 </tbody>
                 </table>
                 <div class="text-center">
-                    <a href="buku.php" type="button" class="btn btn-danger"> Kembali </a>
-                    <a href="registerpeminjaman.php">
-                        <button class="btn btn-primary" id="tambah">
-                            Tambah Data
-                        </button>
+                    <a href="../peminjaman/tambah_peminjaman.php" type="button" class="btn btn-primary"> Tambah Data
                     </a>
                 </div>
             </div>
