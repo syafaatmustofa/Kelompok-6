@@ -3,4 +3,4 @@
 Project Kelompok Karisma Academy
 - Membuat Web Perpustakaan
 - User : Admin, Siswa, Petugas
-Tools : HTML, CSS, PHP, Bootstrap
+- Tools : HTML, CSS, PHP, Bootstrap
