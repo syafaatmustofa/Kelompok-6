@@ -3,24 +3,31 @@ session_start();
 include "../config.php";
 
 if (!$_SESSION['nip']) {
-    header('location:loginpetugas.php');
+    header('location:login_petugas.php');
 }
 ?>
 
 <?php
 include "../layout/header.php";
+
+// if (!isset($_SESSION['nip']) || !isset($_SESSION['namad']) ) {
+//     header('location:./../petugas/login_petugas.php');
+// }
+
+
+
 ?>
 <title>Data Peminjaman</title>
 </head>
 
 <body class="sb-nav-fixed">
-    <?php 
+    <?php
     include "../layout/navbar_admin.php";
     ?>
     <div id="layoutSidenav">
         <?php
-            include "../layout/sidebar_admin.php";
-            ?>
+        include "../layout/sidebar_admin.php";
+        ?>
     </div>
     <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
         <!-- TABEL -->
@@ -31,11 +38,11 @@ include "../layout/header.php";
                     <label class="form-label">Siswa</label>
                     <select class="form-select" aria-label="Default select example" name="nis">
                         <?php
-                    $ambil = mysqli_query($db, "SELECT * FROM siswa");
-                    while ($data = mysqli_fetch_array($ambil)) {
-                    ?>
-                        <option value="<?= $data['nis'] ?>"><?= $data['namas'];
-                                                        } ?></option>
+                        $ambil = mysqli_query($db, "SELECT * FROM siswa");
+                        while ($data = mysqli_fetch_array($ambil)) {
+                        ?>
+                            <option value="<?= $data['nis'] ?>"><?= $data['namas'];
+                                                            } ?></option>
                     </select>
                 </div>
                 <div class="mb-3">
@@ -50,14 +57,13 @@ include "../layout/header.php";
                     <label class="form-label">Tanggal Pengembalian</label>
                     <input type="date" class="form-control" name="tanggal_pengembalian">
                 </div>
+                <input type="submit" class="btn btn-primary" name="submit" value="submit" />
+                <a href="home_peminjaman.php" class="btn btn-danger"> Kembali</a>
             </form>
-            <input type="submit" class="btn btn-primary" name="submit" value="submit" />
-            <a href="peminjaman.php" class="btn btn-danger"> Kembali</a>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
     </script>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js">
     </script>
@@ -77,21 +83,18 @@ include "../layout/header.php";
 
 <?php
 if (isset($_POST['submit'])) {
-    $nis = $_POST['nis'];
-    $nip = $_POST['nip'];
+    $id_siswa = $_POST['nis'];
+    $id_petugas = $_POST['nip'];
     $tanggal_peminjaman = $_POST['tanggal_peminjaman'];
     $tanggal_pengembalian = $_POST['tanggal_pengembalian'];
 
 
-    $query = mysqli_query($db, "INSERT INTO peminjaman(id_siswa, id_petugas, tanggal_peminjaman, tanggal_pengembalian) VALUES('$nis', '$nip', '$tanggal_peminjaman', '$tanggal_pengembalian')");
+    $query = mysqli_query($db, "INSERT INTO peminjaman (id_siswa, id_petugas, tanggal_peminjaman, tanggal_pengembalian) VALUES('$id_siswa', '$id_petugas', '$tanggal_peminjaman', '$tanggal_pengembalian')");
 
-    if ($query) {
-        $maxid = mysqli_query($db, "SELECT MAX(id_peminjaman)as id_p FROM peminjaman");
-        $max = mysqli_fetch_array($maxid);
-
-        echo '<script>window.location.href="detail_peminjaman.php?id_peminjaman=' . $max['id_p'] . '";</script>';
+    if($query){
+        echo "<script>alert('Data berhasil ditambahkan!'); window.location='home_peminjaman.php';</script>";
     } else {
-        echo 'data gagal ditambah';
+        echo 'Data Gagal ditambahkan';
     }
 }
 

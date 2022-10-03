@@ -1,6 +1,10 @@
 <?php
 include "../config.php";
 session_start();
+
+$id_peminjaman = $_GET['id_peminjaman'];
+$tampil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas join buku on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip and peminjaman.id_buku = buku.id_buku WHERE peminjaman.id_peminjaman = $id_peminjaman ");
+$data2 = mysqli_fetch_assoc($tampil);
 ?>
 
 <?php
@@ -10,13 +14,13 @@ include "../layout/header.php";
 </head>
 
 <body class="sb-nav-fixed">
-    <?php 
+    <?php
     include "../layout/navbar_admin.php";
     ?>
     <div id="layoutSidenav">
         <?php
-            include "../layout/sidebar_admin.php";
-            ?>
+        include "../layout/sidebar_admin.php";
+        ?>
     </div>
     <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
         <div class="container tabel">
@@ -25,61 +29,43 @@ include "../layout/header.php";
                     <h1 class="mx-auto">HISTORY PEMINJAMAN</h1>
                 </div>
                 <div class="card-body">
-                    <!-- search -->
-                    <div class="container">
-                        <form action=class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                    </div>
-                    <!-- search -->
                     <form action="" method="post" enctype="multipart/form-data">
                         <table class="table">
                             <tbody>
                                 <?php
                                 $id_peminjaman = $_GET['id_peminjaman'];
-                                $ambil = mysqli_query($db, "SELECT * FROM peminjaman WHERE id_peminjaman = $id_peminjaman");
-                                while($data = mysqli_fetch_assoc($ambil)) {
+                                $tampil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas join buku on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip and peminjaman.id_buku = buku.id_buku WHERE peminjaman.id_peminjaman = $id_peminjaman ");
+                                $data2 = mysqli_fetch_assoc($tampil);
                                 ?>
                                 <tr>
                                     <td>Cover</td>
-                                    <td><img src="../assets/cover/<?php echo $data['cover'] ?>" class="img-thumbnail"
-                                            alt="" style="width: 100px;"></td>
+                                    <td><img src="../assets/img/<?php echo $data2['cover'] ?>" class="img-thumbnail" alt="" style="width: 100px;"></td>
                                 </tr>
                                 <tr>
                                     <td>Kode Buku</td>
-                                    <td><input type="text" class="form-control" name="kode_buku"
-                                            value="<?php echo $data['id_buku'] ?>" readonly></input></td>
+                                    <td><input type="text" class="form-control" name="kode_buku" value="<?php echo $data2['id_buku'] ?>" disabled></input></td>
                                 </tr>
                                 <tr>
                                     <td>Judul</td>
-                                    <td><input type="text" class="form-control" name="kode_buku"
-                                            value="<?php echo $data['judul'] ?>" readonly></input></td>
+                                    <td><input type="text" class="form-control" name="kode_buku" value="<?php echo $data2['judul'] ?>" disabled></input></td>
                                     </td>
                                 <tr>
                                     <td>NIS</td>
-                                    <td><input type="text" class="form-control" name="nis" placeholder="Masukkan NIS"
-                                            required></input></td>
+                                    <td><input type="text" class="form-control" disabled name="nis" value="<?php echo $data2['nis'] ?>"></input></td>
                                 </tr>
                                 <tr>
                                     <td>Petugas</td>
-                                    <td><input type="text" class="form-control" name="nip"
-                                            value="<?= $_SESSION['nip'] ?>"></input></td>
+                                    <td><input type="text" class="form-control" disabled name="nip" value="<?= $data2['nip'] ?>"></input></td>
                                 </tr>
                                 </tr>
-                                <td>Total</td>
-                                <td><input type="number" class="form-control" name="total"></input></td>
                                 </tr>
-                                <?php
-                                    }
-                                ?>
                                 <tr>
                                     <td>Tanggal Peminjaman</td>
-                                    <td><input type="date" class="form-control" name="pinjam"></input></td>
+                                    <td><input type="date" class="form-control" disabled name="pinjam" value="<?= $data2['tanggal_peminjaman'] ?>"></input></td>
                                 </tr>
                                 <tr>
                                     <td>Tanggal Pengembalian</td>
-                                    <td><input type="date" class="form-control" name="kembali"></input></td>
+                                    <td><input type="date" class="form-control" disabled name="kembali" value="<?= $data2['tanggal_pengembalian'] ?>"></input></td>
                                 </tr>
                             </tbody>
                         </table>

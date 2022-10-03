@@ -1,7 +1,7 @@
 <?php
 include '../config.php';
 
-$id = $_GET['id_pmj'];
+$id = $_GET['id_peminjaman'];
 $delete = mysqli_query($db, "DELETE FROM peminjaman WHERE id_peminjaman='$id'");
 
 if ($delete) {

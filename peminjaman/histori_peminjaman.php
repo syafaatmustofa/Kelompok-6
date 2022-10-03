@@ -1,5 +1,9 @@
 <?php
 include "../config.php";
+
+if (!isset($_SESSION['nip']) || !isset($_SESSION['namad']) ) {
+    header('location:./../petugas/login_petugas.php');
+}
 ?>
 
 <?php

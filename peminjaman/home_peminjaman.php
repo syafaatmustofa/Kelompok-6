@@ -1,5 +1,7 @@
 <?php
 include "../config.php";
+
+
 ?>
 
 <?php
@@ -9,13 +11,13 @@ include "../layout/header.php";
 </head>
 
 <body class="sb-nav-fixed">
-    <?php 
+    <?php
     include "../layout/navbar_admin.php";
     ?>
     <div id="layoutSidenav">
         <?php
-            include "../layout/sidebar_admin.php";
-            ?>
+        include "../layout/sidebar_admin.php";
+        ?>
     </div>
     <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
         <div class="container tabel">
@@ -45,46 +47,41 @@ include "../layout/header.php";
                         </thead>
                         <tbody>
                             <?php
-                        $ambil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip");
-                        while ($data = mysqli_fetch_assoc($ambil)) {
-                        ?>
-                            <tr>
-                                <td><?= $data['id_peminjaman'] ?></td>
-                                <td><?= $data['nis'] ?>-<?= $data['namas'] ?></td>
-                                <td><?= $data['nip'] ?>-<?= $data['nama'] ?></td>
-                                <td><?= $data['tanggal_peminjaman'] ?></td>
-                                <td><?= $data['tanggal_pengembalian'] ?></td>
-                                <td colspan="3">
-                                    <a href="editpeminjaman.php?id_pmj=<?php echo $data['id_peminjaman']; ?> "> <button
-                                            class="btn btn-warning" id="edit">Edit</button></a>
-                                    <a href="deletepeminjaman.php?id_pmj=<?php echo $data['id_peminjaman']; ?> "><button
-                                            class="btn btn-danger" id="hapus">Hapus</button></a>
-                                    <a href="peminjaman_detail.php?id_pgm=<?php echo $data['id_peminjaman']; ?>"><button
-                                            class="btn btn-secondary" id="detail">Details</button></a>
-                                </td>
-                            </tr>
+                            $ambil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip");
+                            while ($data = mysqli_fetch_assoc($ambil)) {
+                            ?>
+                                <tr>
+                                    <td><?= $data['id_peminjaman'] ?></td>
+                                    <td><?= $data['nis'] ?>-<?= $data['namas'] ?></td>
+                                    <td><?= $data['nip'] ?>-<?= $data['nama'] ?></td>
+                                    <td><?= $data['tanggal_peminjaman'] ?></td>
+                                    <td><?= $data['tanggal_pengembalian'] ?></td>
+                                    <td colspan="2">
+                                        <a href="../peminjaman/delete_peminjaman.php?id_peminjaman=<?php echo $data['id_peminjaman']; ?> "><button class="btn btn-danger" id="hapus">Kembalikan</button></a>
+                                        <a href="../peminjaman/detail_peminjaman.php?id_peminjaman=<?php echo $data['id_peminjaman']; ?> "><button class="btn btn-secondary" id="detail">detail</button></a>
+                                    </td>
+                                </tr>
                 </div>
-                <?php
-                        }
-        ?>
-                </tbody>
-                </table>
-                <div class="text-center">
-                    <a href="buku.php" type="button" class="btn btn-danger"> Kembali </a>
-                    <a href="registerpeminjaman.php">
-                        <button class="btn btn-primary" id="tambah">
-                            Tambah Data
-                        </button>
-                    </a>
-                </div>
+            <?php
+                            }
+            ?>
+            </tbody>
+            </table>
+            <div class="text-center">
+                <a href="buku.php" type="button" class="btn btn-danger"> Kembali </a>
+                <a href="tambah_peminjaman.php">
+                    <button class="btn btn-primary" id="tambah">
+                        Tambah Data
+                    </button>
+                </a>
+            </div>
             </div>
         </div>
 
         <!-- a -->
         <script src="assets/bootstrap/js/bootstrap.bundle.min.js">
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
         </script>
         <script src="../assets/js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous">
