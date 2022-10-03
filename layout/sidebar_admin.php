@@ -76,22 +76,10 @@
                 <div class="collapse" id="collapsePages2" aria-labelledby="headingTwo"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                            Home Peminjaman
-                        </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                            Detail Peminjaman
-                        </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                            Tambah Peminjaman
-                        </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                            Histori Peminjaman
-                        </a>
+                        <a class="nav-link" href="../peminjaman/home_peminjaman.php">Home Peminjaman</a>
+                        <a class="nav-link" href="../peminjaman/detail_peminjaman.php">Detail Peminjaman</a>
+                        <a class="nav-link" href="../peminjaman/tambah_peminjaman.php">Tambah Peminjaman</a>
+                        <a class="nav-link" href="../peminjaman/histori_peminjaman.php">Histori Peminjaman</a>
                     </nav>
                 </div>
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages3"
@@ -103,22 +91,10 @@
                 <div class="collapse" id="collapsePages3" aria-labelledby="headingThree"
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                            Home Pengembalian
-                        </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                            Detail Pengembalian
-                        </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                            Tambah Pengembalian
-                        </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-                            data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                            Histori Pengembalian
-                        </a>
+                        <a class="nav-link" href="../pengembalian/home_pengembalian.php">Home Pengembalian</a>
+                        <a class="nav-link" href="../pengembalian/detail_pengembalian.php">Detail Pengembalian</a>
+                        <a class="nav-link" href="../pengembalian/tambah_pengembalian.php">Tambah Pengembalian</a>
+                        <a class="nav-link" href="../pengembalian/histori_pengembalian.php">Histori Pengembalian</a>
                     </nav>
                 </div>
             </div>
