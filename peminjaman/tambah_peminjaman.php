@@ -15,11 +15,11 @@ include "../layout/header.php";
 
 <body class="sb-nav-fixed">
     <?php 
-    include "../layout/navbar_admin.php";
+    include "../layout/navbar_petugas.php";
     ?>
     <div id="layoutSidenav">
         <?php
-            include "../layout/sidebar_admin.php";
+            include "../layout/sidebar_petugas.php";
             ?>
     </div>
     <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
