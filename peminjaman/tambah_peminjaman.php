@@ -1,7 +1,6 @@
 <?php
-// session_start();
+session_start();
 include "../config.php";
-
 // if (!$_SESSION['nip']) {
 //     header('location:../petugas/login_petugas.php');
 // }
@@ -41,7 +40,7 @@ include "../layout/header.php";
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Petugas</label>
-                    <input type="text" class="form-control" name="nip" value="<?= $_SESSION['nip']; ?>" readonly>
+                    <input type="text" class="form-control" name="nip" value="<?= $_SESSION['nip'];?>" readonly>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Tanggal Peminjaman</label>

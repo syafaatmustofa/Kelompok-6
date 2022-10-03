@@ -14,6 +14,7 @@ if (isset($_POST["login"])) {
 
     if ($data) {
         $_SESSION['nip'] = $data['nip'];
+        $_SESSION['nama'] = $data['nama'];
         header('location:home_petugas.php');
     } else { ?>
 <script>

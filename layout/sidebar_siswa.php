@@ -17,7 +17,8 @@
                 <ul class="nav nav-pills">
                     <li class="nav-item">
                         <a class="nav-link" href="home_siswa.php"><i class="fas fa-columns me-2"></i>Data Buku</a>
-                        <a class="nav-link" href="data_siswa.php"><i class="fas fa-book-open me-2"></i>Histori
+                        <a class="nav-link" href="../siswa/histori_peminjaman_siswa.php"><i
+                                class="fas fa-book-open me-2"></i>Histori
                             Peminjaman</a>
                     </li>
                 </ul>

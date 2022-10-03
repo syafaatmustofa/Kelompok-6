@@ -53,12 +53,8 @@ include "../layout/header.php";
                                 <td><?= $data['tanggal_peminjaman'] ?></td>
                                 <td><?= $data['tanggal_pengembalian'] ?></td>
                                 <td colspan="3">
-                                    <a href="editpeminjaman.php?id_pmj=<?php echo $data['id_peminjaman']; ?> "> <button
-                                            class="btn btn-warning" id="edit">Edit</button></a>
-                                    <a href="deletepeminjaman.php?id_pmj=<?php echo $data['id_peminjaman']; ?> "><button
-                                            class="btn btn-danger" id="hapus">Hapus</button></a>
                                     <a href="peminjaman_detail.php?id_pgm=<?php echo $data['id_peminjaman']; ?>"><button
-                                            class="btn btn-secondary" id="detail">Details</button></a>
+                                            class="btn btn-warning" id="detail">Detail</button></a>
                                 </td>
                             </tr>
                 </div>
