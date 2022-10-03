@@ -6,8 +6,11 @@
                 <div class="sb-sidenav-menu-heading">Menu</div>
                 <ul class="nav nav-pills">
                     <li class="nav-item">
+
                         <a class="nav-link" href="../siswa/home_siswa.php"><i class="fas fa-columns me-2"></i>Data Buku</a>
                         <a class="nav-link" href="#"><i class="fas fa-book-open me-2"></i>Histori
+
+
                             Peminjaman</a>
                     </li>
                 </ul>

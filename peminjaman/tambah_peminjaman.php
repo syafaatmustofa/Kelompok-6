@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 include "../config.php";
 session_start();
 
@@ -91,7 +91,11 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Petugas</label>
+<<<<<<< HEAD
                     <input type="text" class="form-control" name="nip" value="<?= $_SESSION['nip']; ?>" disabled>
+=======
+                    <input type="text" class="form-control" name="nip" value="<?= $_SESSION['nip'];?>" readonly>
+>>>>>>> origin/trial
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Tanggal Peminjaman</label>

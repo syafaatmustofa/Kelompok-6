@@ -15,6 +15,7 @@ if (isset($_POST["login"])) {
     if ($data) {
         $_SESSION['nip'] = $data['nip'];
         header('location:../peminjaman/home_peminjaman.php');
+
     } else { ?>
 <script>
 alert("Akun tidak terdaftar!")

@@ -59,6 +59,7 @@ include "../layout/header.php";
                                         <a href="../peminjaman/detail_peminjaman.php?id_peminjaman=<?php echo $data['id_peminjaman']; ?>"><button class="btn btn-secondary" id="detail">Details</button></a>
                                     </td>
                                 </tr>
+
                 </div>
             <?php
                             }
