@@ -10,11 +10,11 @@ include "../layout/header.php";
 
 <body class="sb-nav-fixed">
     <?php 
-    include "../layout/navbar_admin.php";
+    include "../layout/navbar_petugas.php";
     ?>
     <div id="layoutSidenav">
         <?php
-            include "../layout/sidebar_admin.php";
+            include "../layout/sidebar_petugas.php";
             ?>
     </div>
     <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
@@ -34,6 +34,7 @@ include "../layout/header.php";
                                 <th scope="col">Cover</th>
                                 <th scope="col">Sinopsis</th>
                                 <th scope="col">Stok</th>
+                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,6 +54,13 @@ include "../layout/header.php";
                                 </td>
                                 <td> <?php echo $data['sinopsis']; ?> </td>
                                 <td> <?php echo $data['stok']; ?> </td>
+                                <td colspan="2">
+                                    <a href="edit_buku.php?id_buku=<?= $data['id_buku']?>"
+                                        class="btn btn-warning">Edit</a>
+                                    |
+                                    <a href="delete_buku.php?id_buku=<?= $data['id_buku']?>"
+                                        class="btn btn-danger">Hapus</a>
+                                </td>
                             </tr>
                             <?php
                         }

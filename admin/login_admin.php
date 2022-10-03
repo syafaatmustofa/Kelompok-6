@@ -3,7 +3,7 @@ include("../config.php");
 session_start();
 
 if (isset($_SESSION['namad'])) {
-    header('location: home_admin.php');
+    header('location: ../buku/home_buku.php');
     exit;
 }
 
@@ -15,7 +15,7 @@ if (isset($_POST["login"])) {
 
     if ($data) {
         $_SESSION['namad'] = $data['namad'];
-        header('location:../index.php');
+        header('location:../buku/home_buku.php');
     } else { ?>
 <script>
 alert("Username tidak terdaftar!")

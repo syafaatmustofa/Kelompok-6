@@ -11,6 +11,7 @@ include "../layout/header.php";
 </head>
 
 <body class="sb-nav-fixed">
+<<<<<<< HEAD
     <?php
     include "../layout/navbar_admin.php";
     ?>
@@ -18,13 +19,20 @@ include "../layout/header.php";
         <?php
         include "../layout/sidebar_admin.php";
         ?>
+=======
+    <?php 
+    include "../layout/navbar_petugas.php";
+    ?>
+    <div id="layoutSidenav">
+        <?php
+            include "../layout/sidebar_petugas.php";
+            ?>
+>>>>>>> origin/trial
     </div>
     <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
         <div class="container tabel">
             <div class="card mt-5">
-                <div class="card-header" style="background-color: #f7f7f7;">
-                    <h1 class="mx-auto">PEMINJAMAN</h1>
-                </div>
+                <div class="card-header text-white" style="background-color: #827397;">Peminjaman</div>
                 <div class="card-body">
                     <!-- search -->
                     <div class="container">
@@ -47,6 +55,7 @@ include "../layout/header.php";
                         </thead>
                         <tbody>
                             <?php
+<<<<<<< HEAD
                             $ambil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip");
                             while ($data = mysqli_fetch_assoc($ambil)) {
                             ?>
@@ -61,6 +70,35 @@ include "../layout/header.php";
                                         <a href="../peminjaman/detail_peminjaman.php?id_peminjaman=<?php echo $data['id_peminjaman']; ?> "><button class="btn btn-secondary" id="detail">detail</button></a>
                                     </td>
                                 </tr>
+=======
+                        $ambil = mysqli_query($db, "SELECT * FROM peminjaman join siswa join petugas on peminjaman.id_siswa = siswa.nis and peminjaman.id_petugas = petugas.nip");
+                        while ($data = mysqli_fetch_assoc($ambil)) {
+                        ?>
+                            <tr>
+                                <td><?= $data['id_peminjaman'] ?></td>
+                                <td><?= $data['nis'] ?>-<?= $data['namas'] ?></td>
+                                <td><?= $data['nip'] ?>-<?= $data['nama'] ?></td>
+                                <td><?= $data['tanggal_peminjaman'] ?></td>
+                                <td><?= $data['tanggal_pengembalian'] ?></td>
+                                <td colspan="3">
+                                    <a href="editpeminjaman.php?id_pmj=<?php echo $data['id_peminjaman']; ?> "> <button
+                                            class="btn btn-warning" id="edit">Edit</button></a>
+                                    <a href="deletepeminjaman.php?id_pmj=<?php echo $data['id_peminjaman']; ?> "><button
+                                            class="btn btn-danger" id="hapus">Hapus</button></a>
+                                    <a href="peminjaman_detail.php?id_pgm=<?php echo $data['id_peminjaman']; ?>"><button
+                                            class="btn btn-secondary" id="detail">Details</button></a>
+                                </td>
+                            </tr>
+                </div>
+                <?php
+                }
+                ?>
+                </tbody>
+                </table>
+                <div class="text-center">
+                    <a href="../peminjaman/tambah_peminjaman.php" type="button" class="btn btn-primary"> Tambah Data
+                    </a>
+>>>>>>> origin/trial
                 </div>
             <?php
                             }

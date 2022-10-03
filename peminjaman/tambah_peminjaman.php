@@ -1,10 +1,16 @@
 <?php
-session_start();
+// session_start();
 include "../config.php";
 
+<<<<<<< HEAD
 if (!$_SESSION['nip']) {
     header('location:login_petugas.php');
 }
+=======
+// if (!$_SESSION['nip']) {
+//     header('location:../petugas/login_petugas.php');
+// }
+>>>>>>> origin/trial
 ?>
 
 <?php
@@ -21,6 +27,7 @@ include "../layout/header.php";
 </head>
 
 <body class="sb-nav-fixed">
+<<<<<<< HEAD
     <?php
     include "../layout/navbar_admin.php";
     ?>
@@ -28,6 +35,15 @@ include "../layout/header.php";
         <?php
         include "../layout/sidebar_admin.php";
         ?>
+=======
+    <?php 
+    include "../layout/navbar_petugas.php";
+    ?>
+    <div id="layoutSidenav">
+        <?php
+            include "../layout/sidebar_petugas.php";
+            ?>
+>>>>>>> origin/trial
     </div>
     <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
         <!-- TABEL -->
@@ -38,11 +54,20 @@ include "../layout/header.php";
                     <label class="form-label">Siswa</label>
                     <select class="form-select" aria-label="Default select example" name="nis">
                         <?php
+<<<<<<< HEAD
                         $ambil = mysqli_query($db, "SELECT * FROM siswa");
                         while ($data = mysqli_fetch_array($ambil)) {
                         ?>
                             <option value="<?= $data['nis'] ?>"><?= $data['namas'];
                                                             } ?></option>
+=======
+                    $ambil = mysqli_query($db, "SELECT * FROM siswa");
+                    while ($data = mysqli_fetch_array($ambil)) {
+                    ?>
+                        <option value="<?= $data['nis'] ?>"><?= $data['namas'];
+                    } ?>
+                        </option>
+>>>>>>> origin/trial
                     </select>
                 </div>
                 <div class="mb-3">

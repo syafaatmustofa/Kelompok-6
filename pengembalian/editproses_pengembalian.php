@@ -13,6 +13,5 @@ include '../config.php';
     } else {
         echo 'Data Gagal ditambahkan';
     }
-}
 
 ?>

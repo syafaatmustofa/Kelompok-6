@@ -11,11 +11,11 @@ include "../layout/header.php";
 
 <body class="sb-nav-fixed">
     <?php 
-    include "../layout/navbar.php";
+    include "../layout/navbar_petugas.php";
     ?>
     <div id="layoutSidenav">
         <?php
-            include "../layout/sidebar.php";
+            include "../layout/sidebar_petugas.php";
             ?>
     </div>
     <div id="layoutSidenav_content" class="w-75 h-100" style="position: relative; left: 20%; margin-top: 100px;">
@@ -25,10 +25,10 @@ include "../layout/header.php";
                 <div class="card-body mb-3">
                     <form action="editproses_buku.php" method="post" enctype="multipart/form-data">
                         <?php
-                                    $id = $_GET['id_buku'];
-                                    $ambil = mysqli_query($db, "SELECT * FROM buku WHERE id_buku='$id'");
-                                    while ($data = mysqli_fetch_array($ambil)) {
-                                    ?>
+                            $id = $_GET['id_buku'];
+                            $ambil = mysqli_query($db, "SELECT * FROM buku WHERE id_buku='$id'");
+                            while ($data = mysqli_fetch_array($ambil)) {
+                             ?>
                         <div class="row mb-3">
                             <div class="col-6">
                                 <div class="input-1 w-50 ms-auto">
@@ -94,7 +94,7 @@ include "../layout/header.php";
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                            <button type="submit" class="btn btn-primary" name="edit">Submit</button>
                         </div>
                         <?php
                                     }
@@ -123,23 +123,23 @@ include "../layout/header.php";
 </html>
 
 <?php
-
-$id_buku= $_POST['id_buku'];
-$penulis = $_POST['penulis'];
-$judul = $_POST['judul'];
-$tahun = $_POST['tahun'];
-$penerbit = $_POST['penerbit'];
-$kota = $_POST['kota'];
-$sinopsis = $_POST['sinopsis'];
-$stok = $_POST['stok'];
-$cover = $_FILES['cover']['name'];
-$tmp_name = $_FILES['cover']['tmp_name'];
-move_uploaded_file($tmp_name, "./../assets/img/".$cover);
+if (isset($_POST['edit'])) {
+    $id_buku= $_POST['id_buku'];
+    $penulis = $_POST['penulis'];
+    $judul = $_POST['judul'];
+    $tahun = $_POST['tahun'];
+    $penerbit = $_POST['penerbit'];
+    $kota = $_POST['kota'];
+    $sinopsis = $_POST['sinopsis'];
+    $stok = $_POST['stok'];
+    $cover = $_FILES['cover']['name'];
+    $tmp_name = $_FILES['cover']['tmp_name'];
+    move_uploaded_file($tmp_name, "./../assets/img/".$cover);
 
 $query = mysqli_query($db, "UPDATE buku SET penulis='$penulis', tahun='$tahun', judul='$judul', kota='$kota', penerbit='$penerbit', cover='$cover', sinopsis='$sinopsis', stok='$stok' WHERE id_buku='$id_buku'");
 
 if($query) {
     header ("location:home_buku.php");
 }
-
+}
 ?>

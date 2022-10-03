@@ -10,19 +10,17 @@ include "../layout/header.php";
 
 <body class="sb-nav-fixed">
     <?php 
-    include "../layout/navbar_admin.php";
+    include "../layout/navbar_petugas.php";
     ?>
     <div id="layoutSidenav">
         <?php
-            include "../layout/sidebar_admin.php";
+            include "../layout/sidebar_petugas.php";
             ?>
     </div>
     <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
         <div class="container tabel">
             <div class="card mt-5">
-                <div class="card-header" style="background-color: #f7f7f7;">
-                    <h1 class="mx-auto">PENGEMBALIAN</h1>
-                </div>
+                <div class="card-header text-white" style="background-color: #827397;">Pengembalian</div>
                 <div class="card-body">
                     <!-- search -->
                     <div class="container">
