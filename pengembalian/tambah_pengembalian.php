@@ -1,24 +1,25 @@
 <?php
 include "../config.php";
-
 ?>
 
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Perpustakaan 5 jaya</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<?php
+include "../layout/header.php";
+?>
+<title>Data Pengembalian</title>
 </head>
 
-<body>
-    <!-- TABEL -->
-    <div class="container mt-2 mb-5">
-        <<<<<<< HEAD <h1 class="text-center mb-5">Peminjaman Baru</h1>
+<body class="sb-nav-fixed">
+    <?php 
+    include "../layout/navbar_admin.php";
+    ?>
+    <div id="layoutSidenav">
+        <?php
+            include "../layout/sidebar_admin.php";
+            ?>
+    </div>
+    <div id="layoutSidenav_content" class="w-75" style="position: relative; left: 20%; margin-top: 100px;">
+        <div class="container mt-2 mb-5">
+            <h1 class="text-center mb-5">Peminjaman Baru</h1>
             <form method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label">Siswa</label>
@@ -58,7 +59,6 @@ include "../config.php";
                         </form>
                         <input type="submit" class="btn btn-primary" name="submit" value="submit" />
                         <a href="peminjaman.php" class="btn btn-danger"> Kembali</a>
-                        =======
                         <label class="form-label">Tanggal Pengembalian</label>
                         <input type="date" class="form-control" name="tanggal_pengembalian">
                 </div>
@@ -66,18 +66,27 @@ include "../config.php";
                     <label class="form-label">Denda</label>
                     <input type="number" class="form-control" name="denda">
                 </div>
+                <?php
+                    }
+                    ?>
             </form>
             <input type="submit" class="btn btn-primary" name="submit" value="submit" />
             <a href="home_pengembalian.php" class="btn btn-danger"> Kembali</a>
-            >>>>>>> f310637f5fb497e9c52b9f6081e31ab0efcd5edb
+        </div>
     </div>
 
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="../assets/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous">
+    </script>
+    <script src="../assets/demo/chart-area-demo.js"></script>
+    <script src="../assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous">
+    </script>
+    <script src="../assets/js/datatables-simple-demo.js"></script>
 </body>
 
 </html>
@@ -99,6 +108,4 @@ if (isset($_POST['submit'])) {
         echo 'data gagal ditambah';
     }
 }
-
-
 ?>
